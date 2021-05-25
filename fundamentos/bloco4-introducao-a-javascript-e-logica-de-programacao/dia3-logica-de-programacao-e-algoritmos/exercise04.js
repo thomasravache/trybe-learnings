@@ -6,7 +6,7 @@
 //  ***
 // *****
 
-let n = 6;
+let n = 5;
 let text = '';
 let space = '';
 let auxiliar = n-2;
