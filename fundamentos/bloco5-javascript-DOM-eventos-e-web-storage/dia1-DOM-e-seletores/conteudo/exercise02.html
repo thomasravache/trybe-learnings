@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!--
+      Adicione uma classe igual para os dois parágrafos.
+      Recupere os seus parágrafos via código JavaScript , usando a função getElementsByClassName ;
+      Altere algum estilo do primeiro deles.
+      Recupere o subtítulo e altere a cor dele usando a função getElementsByTagName .
+     -->
+
+    <h2 id="page-title">Título</h2>
+    <p id="paragraph" class="verde">Dê uma cor para este parágrafo!</p>
+    <h4 id="subtitle">Subtítulo</h4>
+    <p id="second-paragraph" class="verde">Segundo parágrafo!</p>
+
+    <script>
+      const paragraph = document.getElementById("paragraph");
+      paragraph.style.color = "red";
+
+      let greenColor = document.getElementsByClassName('verde');
+      greenColor[0].style.color = 'green';
+
+      let subtitle = document.getElementsByTagName('h4');
+      subtitle[0].style.fontFamily = 'monospace';
+    </script>
+  </body>
+</html>
