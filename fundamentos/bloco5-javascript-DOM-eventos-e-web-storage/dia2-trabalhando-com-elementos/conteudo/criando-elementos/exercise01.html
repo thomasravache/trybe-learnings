@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+  <!-- 
+  Crie um irmão para elementoOndeVoceEsta .
+  Crie um filho para elementoOndeVoceEsta .
+  Crie um filho para primeiroFilhoDoFilho .
+  A partir desse filho criado, acesse terceiroFilho .
+  -->
+  <div id="paiDoPai">
+    <div id="pai">
+      <div id="primeiroFilho"></div>
+      <div id="elementoOndeVoceEsta">
+        <div id="primeiroFilhoDoFilho"></div>
+        <div id="segundoEUltimoFilhoDoFilho"></div>
+      </div>
+      Atenção!
+      <div id="terceiroFilho"></div>
+      <div id="quartoEUltimoFilho"></div>
+    </div>
+  </div>
+  <script>
+    // Exercício 1
+    let brotherOfElementoOndeVcTa = document.createElement('div');
+    document.querySelector('#pai').appendChild(brotherOfElementoOndeVcTa);
+    // Exercício 2
+    let sonOfElementoOndeVcTa = document.createElement('div');
+    sonOfElementoOndeVcTa.id = 'terceiroEUltimoFilho';
+    document.querySelector('#elementoOndeVoceEsta').appendChild(sonOfElementoOndeVcTa);
+    // Exercício 3
+    let sonOfSonElementoOndeVcTa = document.createElement('div');
+    sonOfSonElementoOndeVcTa.id = 'filhinho';
+    document.querySelector('#primeiroFilhoDoFilho').appendChild(sonOfSonElementoOndeVcTa);
+    // Exercício 4
+    let filhinho = document.querySelector('#filhinho');
+    filhinho.parentElement.parentElement.nextElementSibling;
+  </script>
+  </body>
+</html>
