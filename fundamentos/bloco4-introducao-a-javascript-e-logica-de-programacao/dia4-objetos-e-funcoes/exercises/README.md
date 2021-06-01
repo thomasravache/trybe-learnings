@@ -1,7 +1,7 @@
 # Menuzin
 
-[Parte II - Funções](#parte-ii---funções)
-[Bônus](#bônus)
+- [Parte II - Funções](#parte-ii---funções)
+- [Bônus](#bônus)
 
 ### Parte I - Objetos e For/In
 
