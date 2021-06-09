@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Form</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+        <label for="name">Nome:
+          <input type="text" maxlength="40" required name="name" id="name">
+        </label>
+        <br>
+        <label for="email">E-mail:
+          <input type="text" maxlength="50" required name="email" id="email">
+        </label>
+        <br>
+        <label for="cpf">CPF:
+          <input type="text" maxlength="11" required name="cpf" id="cpf">
+        </label>
+        <br>
+        <label for="address">Endereço:
+          <input type="text" maxlength="200" required name="address" id="address">
+        </label>
+        <br>
+        <label for="city">Cidade:
+          <input type="text" maxlength="28" required name="city" id="city">
+        </label>
+        <br>
+        <label for="estados">Estados
+          <select name="estados" id="estados">
+          </select>
+        </label>
+        <br>
+        <fieldset>
+          <legend>
+            Tipo de casa
+          </legend>
+          <label for="casa">
+            <input type="radio" name="tipo-casa" id="casa" checked required>Casa
+          </label>
+          <label for="apartamento">
+            <input type="radio" name="tipo-casa" id="apartamento" required>Apartamento
+          </label>
+        </fieldset>
+      </fieldset>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
