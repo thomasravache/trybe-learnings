@@ -10,60 +10,54 @@
     <form action="" method="get">
       <fieldset>
         <legend>Dados Pessoais</legend>
-        <label for="name">Nome:
+        <div>
+          <label for="name">Nome</label>
           <input type="text" maxlength="40" required name="name" id="name">
-        </label>
-        <br>
-        <label for="email">E-mail:
+        </div>
+        <div>
+          <label for="email">E-mai </label>
           <input type="text" maxlength="50" required name="email" id="email">
-        </label>
-        <br>
-        <label for="cpf">CPF:
+        </div>
+        <div>
+          <label for="cpf">CPF</label>
           <input type="text" maxlength="11" required name="cpf" id="cpf">
-        </label>
-        <br>
-        <label for="address">Endereço:
+        </div>
+        <div>
+          <label for="address">Endereço</label>
           <input type="text" maxlength="200" required name="address" id="address">
-        </label>
-        <br>
-        <label for="city">Cidade:
+        </div>
+        <div>
+          <label for="city">Cidade</label>
           <input type="text" maxlength="28" required name="city" id="city">
-        </label>
-        <br>
-        <label for="estados">Estados
-          <select name="estados" id="estados">
-          </select>
-        </label>
-        <br>
+        </div>
+        <div>
+          <label for="estados">Estados</label>
+          <select name="estados" id="estados"></select>
+        </div>
+
         <fieldset>
-          <legend>
-            Tipo de casa
-          </legend>
-          <label for="casa">
-            <input type="radio" name="tipo-casa" id="casa" checked required>Casa
-          </label>
-          <label for="apartamento">
-            <input type="radio" name="tipo-casa" id="apartamento" required>Apartamento
-          </label>
+          <legend>Tipo de casa</legend>
+          <input type="radio" name="tipo-casa" id="casa" checked required>
+          <label for="casa">Casa</label>
+          <input type="radio" name="tipo-casa" id="apartamento" required>
+          <label for="apartamento">Apartamento</label>
         </fieldset>
       </fieldset>
+      
       <fieldset>
         <legend>Dados do último emprego</legend>
-        <label for="resumo-curriculo">Resumo do currículo <br>
-          <textarea name="resumo" maxlength="1000" id="resumo-curriculo" cols="70" rows="10" required></textarea>
-        </label>
-        <br>
-        <label for="cargo">Cargo:
-          <input type="text" name="cargo" id="cargo" maxlength="40" required>
-        </label>
-        <br>
-        <label for="descricao-cargo">Descrição do cargo <br>
-          <textarea name="descricao-cargo" id="descricao-cargo" required cols="70" rows="5"></textarea>
-        </label>
-        <br>
-        <label for="data-inicio">Data de início:
-          <input type="text" name="data" id="data-inicio" maxlength="10" placeholder="dd/mm/aaaa" required>
-        </label>
+
+        <label for="resumo-curriculo">Resumo do currículo</label>
+        <textarea name="resumo" maxlength="1000" id="resumo-curriculo" cols="70" rows="10" required></textarea>
+      
+        <label for="cargo">Cargo</label>
+        <input type="text" name="cargo" id="cargo" maxlength="40" required>
+      
+        <label for="descricao-cargo">Descrição do cargo</label>
+        <textarea name="descricao-cargo" id="descricao-cargo" required cols="70" rows="5"></textarea>
+      
+        <label for="data-inicio">Data de início</label>
+        <input type="text" name="data" id="data-inicio" maxlength="10" placeholder="dd/mm/aaaa" required>
       </fieldset>
     </form>
     <script src="script.js"></script>
