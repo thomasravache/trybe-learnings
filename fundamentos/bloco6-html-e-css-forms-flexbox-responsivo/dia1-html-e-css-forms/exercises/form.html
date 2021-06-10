@@ -47,6 +47,24 @@
           </label>
         </fieldset>
       </fieldset>
+      <fieldset>
+        <legend>Dados do último emprego</legend>
+        <label for="resumo-curriculo">Resumo do currículo <br>
+          <textarea name="resumo" maxlength="1000" id="resumo-curriculo" cols="70" rows="10" required></textarea>
+        </label>
+        <br>
+        <label for="cargo">Cargo:
+          <input type="text" name="cargo" id="cargo" maxlength="40" required>
+        </label>
+        <br>
+        <label for="descricao-cargo">Descrição do cargo <br>
+          <textarea name="descricao-cargo" id="descricao-cargo" required cols="70" rows="5"></textarea>
+        </label>
+        <br>
+        <label for="data-inicio">Data de início:
+          <input type="text" name="data" id="data-inicio" maxlength="10" placeholder="dd/mm/aaaa" required>
+        </label>
+      </fieldset>
     </form>
     <script src="script.js"></script>
   </body>

@@ -1,4 +1,32 @@
 const stateArea = document.querySelector('#estados');
+const dateField = document.querySelector('#data-inicio');
+
+dateField.addEventListener('keypress', function(event) {
+  if (dateField.value.length == 2 || dateField.value.length == 5) {
+    dateField.value += '/';
+  }
+
+  if (isNaN(parseInt(event.key))) {
+    event.preventDefault();
+  }
+});
+
+dateField.addEventListener('change', function() {
+  let date = dateField.value.split('/');
+  let day = parseInt(date[0],10);
+  let month = parseInt(date[1],10);
+  let year = parseInt(date[2],10);
+  let invalidDay = (day <= 0 || day > 31 || isNaN(day));
+  let invalidMonth = (month <= 0 || month > 12) || isNaN(month);
+  let invalidYear = (year <= 0);
+  let isEmpty = (dateField.value === '' || isNaN(year));
+
+  if (invalidDay || invalidMonth || invalidYear || isEmpty) {
+    dateField.value = ''
+    alert('Informe a data corretamente');
+  }
+
+});
 
 function createStatesOptionDropDown() {
   let brazilStates = {
