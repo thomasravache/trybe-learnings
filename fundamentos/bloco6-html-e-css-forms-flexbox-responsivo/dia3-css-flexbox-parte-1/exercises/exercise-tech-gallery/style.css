@@ -25,3 +25,11 @@ header {
   justify-content: space-around;
   align-items: center;
 }
+
+.introduction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
