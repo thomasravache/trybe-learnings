@@ -17,3 +17,11 @@
   width: 25px;
   margin-left: 10px;
 }
+
+header {
+  background-color: rgb(50,52,51);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
