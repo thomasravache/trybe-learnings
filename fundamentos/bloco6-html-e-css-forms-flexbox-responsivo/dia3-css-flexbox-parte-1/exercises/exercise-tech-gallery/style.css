@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu';
+}
+
+.header-img {
+  width: 70px;
+}
+
+.gallery-img {
+  width: 150px;
+}
+
+.social-img {
+  width: 25px;
+  margin-left: 10px;
+}
+
+header {
+  background-color: rgb(50,52,51);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.introduction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+}
+
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+  width: 550px;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: space-between;
+}
+
+.photo {
+  width: 160px;
+  background-color: azure;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: 1s;
+  border-radius: 10px;
+  box-shadow: 7px 10px 10px rgb(153, 153, 153);
+  margin: 8px;
+}
+
+.photo:hover {
+  transform: scale(1.2);
+  box-shadow: 7px 10px 15px rgb(153, 153, 153);;
+}
+
+/* hr {
+  margin-top: 10px;
+  width: 100px;
+} */
+
+footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
