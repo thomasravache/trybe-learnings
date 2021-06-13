@@ -198,7 +198,7 @@
 ```
 
 
-# Conteúdo
+# Exercícios
 
 ### Trybe Tech-Gallery
 
