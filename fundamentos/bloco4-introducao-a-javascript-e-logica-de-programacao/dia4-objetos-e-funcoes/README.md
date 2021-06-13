@@ -1,0 +1,292 @@
+# Menu
+
+ - [Conteúdo](#conteúdo)
+	 - [Objetos](#objetos)
+	 - [For/in](#forin)
+	 - [Funções](#funções)
+ - [Exercícios](#exercícios)
+	 - [Parte l - Objetos e For/In](#parte-l---objetos-e-forin)
+	 - [Parte ll - Funções](#parte-ll---funções)
+	 - [Bônus](#bônus)
+
+# Conteúdo
+
+## Objetos
+
+1.  Crie um objeto  `player`  contendo as variáveis listadas abaixo.
+
+
+```javascript
+let name = 'Marta';
+let lastName = 'Silva';
+let age = 34;
+let medals = { golden: 2, silver: 3 };
+```
+
+2.  Acesse as chaves  `name`  ,  `lastName`  e  `age`  e concatene as suas informações para imprimir no console uma mensagem no seguinte formato: "A jogadora Marta Silva tem 34 anos de idade".
+    
+3.  Adicione ao objeto a chave  `bestInTheWorld`  e atribua a esta chave um  `array`  contendo as datas em que a jogadora Marta foi considerada a melhor do mundo.
+    
+
+
+```javascript
+let bestInTheWorld = [2006, 2007, 2008, 2009, 2010, 2018];
+```
+
+4.  Acesse a chave  `bestInTheWorld`  e faça um  `console.log`  no seguinte formato: "A jogadora Marta Silva foi eleita a melhor do mundo por 6 vezes".
+    
+5.  Acesse a chave  `medals`  e faça um  `console.log`  no seguinte formato: "A jogadora possui 2 medalhas de ouro e 3 medalhas de prata".
+    
+
+Agora veremos uma variação do laço  `for`  , que nos garante facilidade ao lidar com objetos.
+
+## For/in
+
+1.  Usando o objeto abaixo, utilize For/in e imprima no console a mensagem  `'Olá xxxxx'`  para cada nome, substituindo o  `xxxxx`  pelo nome em questão.
+
+
+```shell
+let names = {
+  person1: 'João',
+  person2: 'Maria',
+  person3: 'Jorge' 
+};
+```
+
+2.  Usando o objeto abaixo, utilize For/in e imprima um  `console.log`  com as chaves e valores desse objeto.
+
+```shell
+let car = {
+  model: 'A3 Sedan',
+  manufacturer: 'Audi',
+  year: 2020
+};
+```
+
+## Funções
+
+Pegue cada um dos exercícios da  [primeira parte](https://app.betrybe.com/course/content/33d74e1e-05b9-4ce8-86e3-623c96afe64d) das nossas aulas de  _JavaScript_ e faça com que todos eles sejam funções de um mesmo arquivo. As variáveis que você define no começo de cada arquivo devem ser removidas e transformadas em parâmetros das funções. Por exemplo:
+
+O programa...
+
+
+```javascript
+// Adição
+let a = 5;
+let b = 2;
+
+a + b;
+```
+
+... se transforma em:
+
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+Após  [refatorar o seu código](https://app.betrybe.com/course/real-life-engineer/glossary#refatoracao) , verifique se ele ainda está funcionando conforme especificado. Teste cada função com algumas entradas diferentes.
+
+# Exercícios
+
+## Parte l - Objetos e For/In
+
+Usando o objeto abaixo, faça os exercícios a seguir:
+
+
+```javascript
+let info = {
+  personagem: 'Margarida',
+  origem: 'Pato Donald',
+  nota: 'Namorada do personagem principal nos quadrinhos do Pato Donald',
+};
+```
+
+1.  Imprima no console uma mensagem de boas-vindas para a personagem acima, incluindo seu nome.
+
+-   Valor esperado no console:  `Bem-vinda, Margarida`
+
+2.  Insira no objeto uma nova propriedade com o nome de chave 'recorrente' e o valor 'Sim' e, em seguida, imprima o objeto no console.
+
+-   Valor esperado no console:
+
+
+```javascript
+  {
+    personagem: 'Margarida',
+    origem: 'Pato Donald',
+    nota: 'Namorada do personagem principal nos quadrinhos do Pato Donald',
+    recorrente: 'Sim'
+  };
+```
+
+3.  Faça um  `for/in`  que mostre todas as chaves do objeto.
+
+-   Valor esperado no console:
+
+
+```html
+  personagem
+  origem
+  nota
+  recorrente
+```
+
+4.  Faça um novo  `for/in`  , mas agora mostre todos os valores das chaves do objeto.
+
+-   Valor esperado no console:
+
+
+```bash
+  Margarida
+  Pato Donald
+  Namorada do personagem principal nos quadrinhos do Pato Donald
+  Sim
+```
+
+5.  Agora, defina um segundo objeto com a mesma estrutura (as mesmas chaves) do primeiro e os seguintes valores: 'Tio Patinhas', 'Christmas on Bear Mountain, Dell's Four Color Comics #178', 'O último MacPatinhas', 'Sim'. Então, imprima os valores de cada objeto juntos de acordo com cada uma das chaves.
+
+-   Valor esperado no console:
+
+
+```bash
+  Margarida e Tio Patinhas
+  Pato Donald e Christmas on Bear Mountain, Dell's Four Color Comics #178
+  Namorada do personagem principal nos quadrinhos do Pato Donald e O último MacPatinhas
+  Ambos recorrentes // Atenção para essa última linha!
+```
+
+## Parte ll - Funções
+
+Agora vamos fazer um exercício que vai deixar claro como funções com responsabilidades bem definidas deixam o código mais bem escrito.
+
+1.  Crie uma função que receba uma  `string`  e retorne  `true`  se for um  [palíndromo](https://pt.wikipedia.org/wiki/Pal%C3%ADndromo) , ou  `false`  , se não for.
+
+-   Exemplo de palíndromo:  _arara_ .
+    
+-   `verificaPalindrome('arara')`  ;
+    
+-   Retorno esperado:  `true`
+    
+-   `verificaPalindrome('desenvolvimento')`  ;
+    
+-   Retorno esperado:  `false`
+    
+
+2.  Crie uma função que receba um  `array`  de inteiros e retorne o índice do maior valor.
+
+-   Array de teste:  _`[2, 3, 6, 7, 10, 1];`_ .
+    
+-   Valor esperado no retorno da função:  `4`  .
+    
+
+3.  Crie uma função que receba um  `array`  de inteiros e retorne o índice do menor valor.
+
+-   Array de teste:  _`[2, 4, 6, 7, 10, 0, -3];`_ .
+    
+-   Valor esperado no retorno da função:  `6`  .
+    
+
+4.  Crie uma função que receba um  `array`  de nomes e retorne o nome com a maior quantidade de caracteres.
+
+-   Array de teste:  _`['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana'];`_ .
+    
+-   Valor esperado no retorno da função:  `Fernanda`  .
+    
+
+5.  Crie uma função que receba um  `array`  de inteiros e retorne o inteiro que mais se repete.
+
+-   Array de teste:  _`[2, 3, 2, 5, 8, 2, 3];`_ .
+    
+-   Valor esperado no retorno da função:  `2`  .
+    
+
+6.  Crie uma função que receba um número inteiro N e retorne o somatório de todos os números de 1 até N.
+
+-   Valor de teste:  _`N = 5`_ .
+    
+-   Valor esperado no retorno da função:  _1+2+3+4+5 =_ `15`  .
+    
+
+7.  Crie uma função que receba uma  `string word`  e outra  `string ending`  . Verifique se a  `string ending`  é o final da  `string word`  . Considere que a  `string ending`  sempre será menor que a  `string word`  .
+
+-   Valor de teste:  `'trybe' e 'be'`
+    
+-   Valor esperado no retorno da função:  `true`
+    
+-   `verificaFimPalavra('trybe', 'be')`  ;
+    
+-   Retorno esperado:  `true`
+    
+-   `verificaFimPalavra('joaofernando', 'fernan')`  ;
+    
+-   Retorno esperado:  `false`
+
+## Bônus
+
+1.  (Difícil) Faça um programa que receba uma string em algarismos romanos e retorne o número que a string representa.
+
+-   **Atenção! Esse exercício já apareceu no processo seletivo de uma grande multinacional!**
+    
+-   Dicas:
+    
+    -   Uma string é um array de caracteres, então cada elemento do array é uma letra.
+    -   O valor de cada numeral romano é:
+        
+        
+        ```
+        | I   | 1    |
+        | --- | ---- |
+        | IV  | 4    |
+        | V   | 5    |
+        | IX  | 9    |
+        | X   | 10   |
+        | XL  | 40   |
+        | L   | 50   |
+        | XC  | 90   |
+        | C   | 100  |
+        | CD  | 400  |
+        | D   | 500  |
+        | CM  | 900  |
+        | M   | 1000 |
+        ```
+        
+    
+    -   Que tal criar um objeto que associe cada letra a um numeral para fácil consulta?
+    -   **Atenção! Quando você tem um número pequeno à direita de um número grande, eles devem ser somados. Exemplo: XI = 10 + 1 = 11. No entanto, se o número pequeno está à esquerda de um número maior que ele, ele deve ser subtraído. Exemplo: IX = 10 - 1 = 9.**
+
+2.  Crie uma função chamada  `arrayOfNumbers`  que receberá a variável  `vector`  como parâmetro. Através de um loop  `for`  , percorra essa variável, busque os números pares e os adicione a um novo array que deverá ser retornado ao final pela pela função.
+
+
+```javascript
+
+let vector = [[1, 2], [3,4,5,6], [7,8,9,10]];
+```
+
+3.  A partir do array de frutas  `basket`  , retorne um objeto que contenha o nome da fruta como chave e a quantidade de vezes que ela aparece no array como valor. Por exemplo, o array ['Melancia', 'Abacate', 'Melancia', 'Melancia', 'Uva'], deverá retornar { Melancia: 3, Abacate: 1, Uva: 1 } quando passado como argumento para a função. Em seguida, imprima esse resultado na tela com uma mensagem no seguinte formato:  `Sua cesta possui: x Melancias, x Abacates...`
+
+
+```javascript
+
+const basket = [
+  'Melancia', 'Abacate', 'Melancia', 'Melancia', 'Uva', 'Laranja',
+  'Jaca', 'Pera', 'Melancia', 'Uva', 'Laranja', 'Melancia',
+  'Banana', 'Uva', 'Pera', 'Abacate', 'Laranja', 'Abacate',
+  'Banana', 'Melancia', 'Laranja', 'Laranja', 'Jaca', 'Uva',
+  'Banana', 'Uva', 'Laranja', 'Pera', 'Melancia', 'Uva',
+  'Jaca', 'Banana', 'Pera', 'Abacate', 'Melancia', 'Melancia',
+  'Laranja', 'Pera', 'Banana', 'Jaca', 'Laranja', 'Melancia',
+  'Abacate', 'Abacate', 'Pera', 'Melancia', 'Banana', 'Banana',
+  'Abacate', 'Uva', 'Laranja', 'Banana', 'Abacate', 'Uva',
+  'Uva', 'Abacate', 'Abacate', 'Melancia', 'Uva', 'Jaca',
+  'Uva', 'Banana', 'Abacate', 'Banana', 'Uva', 'Banana',
+  'Laranja', 'Laranja', 'Jaca', 'Jaca', 'Abacate', 'Jaca',
+  'Laranja', 'Melancia', 'Pera', 'Jaca', 'Melancia', 'Uva',
+  'Abacate', 'Jaca', 'Jaca', 'Abacate', 'Uva', 'Laranja',
+  'Pera', 'Melancia', 'Jaca', 'Pera', 'Laranja', 'Jaca',
+  'Pera', 'Melancia', 'Jaca', 'Banana', 'Laranja', 'Jaca',
+  'Banana', 'Pera', 'Abacate', 'Uva',
+];
+```
