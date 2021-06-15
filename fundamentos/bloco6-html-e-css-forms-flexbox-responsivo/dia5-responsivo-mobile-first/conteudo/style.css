@@ -81,3 +81,12 @@ p strong {
     display: flex;
   }
 }
+
+@media screen and (max-width: 649px), (min-width: 951px) {
+  .cards .card:nth-child(3) {
+    display: flex;
+  }
+}
+
+
+
