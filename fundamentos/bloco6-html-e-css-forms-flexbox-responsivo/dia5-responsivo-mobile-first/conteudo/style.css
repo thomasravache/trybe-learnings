@@ -67,6 +67,10 @@ p strong {
 }
 
 @media screen and (max-width: 500px) {
+  .cards .card:nth-child(1) {
+    display: flex;
+  }
+
   p.trick {
     color: black;
   }
