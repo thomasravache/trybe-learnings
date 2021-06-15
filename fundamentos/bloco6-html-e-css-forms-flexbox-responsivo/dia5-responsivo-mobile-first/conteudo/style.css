@@ -67,6 +67,11 @@ p strong {
 }
 
 @media screen and (max-width: 500px) {
+  body {
+    overflow: visible;
+  }
+
+
   .cards .card:nth-child(1) {
     display: flex;
   }
