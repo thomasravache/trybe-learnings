@@ -54,6 +54,10 @@ p strong {
   width: 200px;
 }
 
+.dont-show {
+  display: none;
+}
+
 .card:nth-of-type(1) {
   background-color: #0fa36b;
 }
