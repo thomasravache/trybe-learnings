@@ -92,3 +92,20 @@ console.log(technologies); // Erro
 ```
 
 Em resumo, variáveis podem ser declaradas com o  `const`  ,  `let`  e  `var`  . Apesar das três terem o mesmo propósito, é importante nos atentar às boas práticas para escrevermos códigos confiáveis. Assim, sempre que possível, usar o  `const`  para declarar variáveis é interessante porque conseguimos um comportamento mais previsível, já que o seu valor não pode ser alterado diretamente.
+
+## Parte ll  - `template literals`
+
+A sintaxe do  `template literals`  pede para usarmos o sinal de  _crases_ no início e no final da frase, e variáveis dentro de um  `${...}`  . Você também pode adicionar uma expressão dentro das chaves, como  `${a + b}`  . Outra novidade é poder adicionar quebras de linha com o  `template literals`  sem a necessidade de concatená-las com o operador  `+`  e  `\n`  para trocar de linha. Execute o código abaixo para ver o resultado!
+
+```javascript
+// Com o template literals
+console.log(`Primeira linha;
+Segunda linha;
+Terceira linha;`
+)
+
+// Sem o template literals:
+console.log('Primeira linha;\n' + 'Segunda linha;\n' + 'Terceira linha;\n')
+```
+
+Agora você já está pronto para escrever códigos mais limpos e legíveis usando  `template literals`  !
