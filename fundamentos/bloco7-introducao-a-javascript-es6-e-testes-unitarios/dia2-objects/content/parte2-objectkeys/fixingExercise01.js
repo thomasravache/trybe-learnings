@@ -2,7 +2,7 @@ const student1 = {
   Html: 'Muito Bom',
   Css: 'Bom',
   JavaScript: 'Ótimo',
-  SoftSkills: 'Ótimo',
+  SoftSkills: 'Ótimo'
 };
 
 const student2 = {
@@ -10,9 +10,13 @@ const student2 = {
   Css: 'Ótimo',
   JavaScript: 'Ruim',
   SoftSkills: 'Ótimo',
-  Git: 'Bom', // chave adicionada
+  Git: 'Bom' // chave adicionada
 };
 
-for (let keys in student1) {
-  console.log(`${keys}, Nível: ${student1[keys]}`);
-};
+const exibirConteudo = (object) => {
+  for (let keys in object) {
+    console.log(`${keys}, Nível: ${object[keys]}`);
+  }
+}
+
+console.log(exibirConteudo(student2));
