@@ -4,4 +4,4 @@ const repeat = (number, action) => {
   }
 };
 
-repeat(5, console.log);
+repeat(5, console.group);
