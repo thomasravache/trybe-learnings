@@ -6,7 +6,6 @@
 
 **1 -** Use o método forEach chamando a callback  **showEmailList** para apresentar os emails
 
-Copiar
 
 ```javascript
 const emailListInData = [
@@ -34,7 +33,6 @@ const showEmailList = (email) => {
 
 **1 -** Utilize o  `find`  para retornar o primeiro número do array que é divisível por  **3** e  **5** , caso ele exista:
 
-Copiar
 
 ```javascript
 const numbers = [19, 21, 30, 3, 45, 22, 15];
@@ -50,7 +48,6 @@ console.log(findDivisibleBy3And5())
 
 **2 -** Utilize o  `find`  para encontrar o primeiro nome com cinco letras, caso ele exista:
 
-Copiar
 
 ```javascript
 const names = ['João', 'Irene', 'Fernando', 'Maria'];
@@ -66,7 +63,6 @@ console.log(findNameWithFiveLetters());
 
 **3 -** Utilize o  `find`  para encontrar a música com  **id** igual a  **31031685** , caso ela exista:
 
-Copiar
 
 ```javascript
 const musicas = [
@@ -88,7 +84,6 @@ console.log(findMusic('31031685'))
 
 **1 -** Escreva uma função que dado um array de nomes e um nome retorne  `true`  se ele estiver contido e caso contrário, retorne  `false`  , use  `some`  ;
 
-Copiar
 
 ```javascript
 const names = ['Mateus', 'José', 'Ana', 'Cláudia', 'Bruna'];
@@ -104,7 +99,6 @@ console.log(hasName(names, 'Ana'))
 
 **2 -** Escreva uma função que dado um array de pessoas e uma idade mínima retorne  `true`  se todas tiverem a idade maior ou igual a mínima e caso contrário  `false`  , use  `every`  ;
 
-Copiar
 
 ```javascript
 const people = [
