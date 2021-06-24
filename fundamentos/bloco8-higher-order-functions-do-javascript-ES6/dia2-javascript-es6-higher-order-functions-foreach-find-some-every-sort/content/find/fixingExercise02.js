@@ -1,7 +1,7 @@
-const numbers = [19, 21, 30, 3, 45, 22, 15];
+const names = ['João', 'Irene', 'Fernando', 'Maria'];
 
-const findDivisibleBy3And5 = () => {
-  // Adiciona seu código aqui
+const findNameWithFiveLetters = () => {
+  // Adicione seu código aqui:
 }
 
-console.log(findDivisibleBy3And5())
+console.log(findNameWithFiveLetters());
