@@ -7,7 +7,7 @@ const people = [
 ];
 
 const verifyAges = (arr, minimumAge) => {
-  //Adicione seu código aqui
+  return arr.every((value) => value.age >= minimumAge); // verifica se todos do array people são maiores de 18 anos
 }
 
 console.log(verifyAges(people, 18));
