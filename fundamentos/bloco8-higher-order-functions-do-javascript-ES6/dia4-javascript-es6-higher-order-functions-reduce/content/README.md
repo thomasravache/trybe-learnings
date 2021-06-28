@@ -99,8 +99,6 @@ const estudantes = [
 
 Resultado esperado:
 
-Copiar
-
 ```javascript
 [
   { name: 'Jorge', materia: 'Português' },
