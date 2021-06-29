@@ -25,7 +25,6 @@ console.log(fruitSalad(specialFruit, additionalItens));
 
 **1** - Produza o mesmo resultado do código, porém utilizando o array destructuring para recolher a função e a saudação.
 
-Copiar
 
 ```javascript
 const saudacoes = ['Olá', (saudacao) => console.log(saudacao)];
@@ -39,7 +38,6 @@ saudacoes[1](saudacoes[0]); // Olá
 
 **2** - A seguir, temos alguns valores que estão descritos em variáveis incoerentes. Através da desestruturação de arrays, corrija os valores das variáveis.
 
-Copiar
 
 ```javascript
 let comida = 'gato';
