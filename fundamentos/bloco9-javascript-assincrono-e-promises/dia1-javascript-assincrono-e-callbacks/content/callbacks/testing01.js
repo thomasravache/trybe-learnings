@@ -33,3 +33,8 @@ const handleExpenses = myExpenses => {
 };
 
 monthlyBudget(myIncome, myExpenses, handleExpenses);
+
+// Balanço do mês:
+//     Recebido: R$1000,00
+//     Gasto: R$459,00
+//     Saldo: R$541,00
