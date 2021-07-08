@@ -3,6 +3,10 @@ const returnArrayDivision = (result) => {
   return divisors.map((divisor) => result / divisor);
 };
 
+const sumElementsOfArray = (array) => {
+  return array.reduce((accumulator, elements) => accumulator + elements);
+};
+
 const promise = new Promise((resolve, reject) => {
   const arrayOfNumbers = [];
 
@@ -10,14 +14,14 @@ const promise = new Promise((resolve, reject) => {
     const randomNumber = Math.floor(Math.random() * 50);
     arrayOfNumbers.push(randomNumber ** 2);
   }
-  const sumOfAllElements = arrayOfNumbers
-    .reduce((accumulator, element) => accumulator + element);
+  const sumOfAllElements = sumElementsOfArray(arrayOfNumbers);
 
   if (sumOfAllElements < 8000) {
-    return resolve(returnArrayDivision(sumOfAllElements));
+    resolve(returnArrayDivision(sumOfAllElements));
   } else {
     reject('É mais de oito mil! Essa promise deve estar quebrada!');
   }
 })
-  .then((response) => console.log(response))
+  .then((response) => response)
+  .then((responseOfResponse) => console.log(sumElementsOfArray(responseOfResponse)))
   .catch((error) => console.log(error));
