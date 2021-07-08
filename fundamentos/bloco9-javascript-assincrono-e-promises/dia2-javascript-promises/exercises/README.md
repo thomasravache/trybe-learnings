@@ -128,3 +128,9 @@ window.onload = () => fetchJoke();
 4.  Quando a  _Promise_ for rejeitada, imprima, via  `console.log`  , a frase "É mais de oito mil! Essa promise deve estar quebrada!"
     
 5.  Quando a  _Promise_ for bem-sucedida, encadeie nela uma segunda  _Promise_ que some os elementos do array.
+
+### Bonus
+
+-   Utilize somente Higher Order Functions para fazer as operações com o array;
+    
+-   Refatore a  _Promise_ para utilizar somente  `async`  e  `await`  .
