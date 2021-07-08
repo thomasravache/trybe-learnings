@@ -16,8 +16,8 @@ const promise = new Promise((resolve, reject) => {
   if (sumOfAllElements < 8000) {
     return resolve(returnArrayDivision(sumOfAllElements));
   } else {
-    reject();
+    reject('É mais de oito mil! Essa promise deve estar quebrada!');
   }
 })
   .then((response) => console.log(response))
-  .catch(() => console.log('Promise rejeitada'));
+  .catch((error) => console.log(error));
