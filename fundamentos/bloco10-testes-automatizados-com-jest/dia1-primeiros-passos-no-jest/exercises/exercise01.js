@@ -40,6 +40,8 @@ function myFizzBuzz(num) {
   return num;
 }
 
+console.log(myFizzBuzz(15));
+
 // 05
 const obj1 = {
   title: 'My Title',
