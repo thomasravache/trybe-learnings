@@ -13,7 +13,6 @@ Para fixar tudo o que você aprendeu siga os passos à seguir para criar o seu p
 
 2.  Na pasta  `src`  , acesse  `App.js`  e remova todo o conteúdo da função  `App`  , de modo que ela fique assim:
 
-Copiar
 
 ```jsx
     import React from 'react';
@@ -35,7 +34,6 @@ Copiar
 
 -   Para isso você precisará utilizar o  `export default`  para exportar seu componente, o  `export default`  é sempre utilizado quando queremos exportar apenas um elemento de um arquivo, seja uma função, um componente ou uma variável. A penúltima linha do arquivo  `Component.js`  deverá ficar da seguinte forma:
 
-Copiar
 
 ```jsx
     export default Component;
