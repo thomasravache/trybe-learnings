@@ -88,3 +88,15 @@ class App extends React.Component {
 
 export default App;
 ```
+
+Caso você seja uma pessoa bem perceptiva, deve ter reparado que todos  **os nomes de componentes React são iniciados com letra maíuscula** . É uma simples, porém importante, regra de sintaxe do React.
+
+Essa norma de sintaxe se dá devido ao modo como o  **React** diferencia  _tags do DOM_ dos  _componentes React_ : quando iniciados com letra minúscula, como  `<div />`  e  `<input />`  , serão tratadas como  _tags do DOM_ . Por sua vez, quando iniciados com letra maiúscula, como  `<Greeting />`  , serão entendidos como  _componentes React_ .
+
+Crie os componentes acima dentro do diretório  `src`  do projeto  `fixation-exercises-11-2`  , para poder fazer o exercício a seguir.
+
+Agora, responda ao seguinte, no que diz respeito à composição de componentes:
+
+-   O que o componente  `App`  é em relação a  `Order`  ?
+    
+-   Complete o código acima de forma que os pedidos referentes aos produtos  `headphone`  e  `energyDrink`  sejam filhos de  `App`  .
