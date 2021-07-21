@@ -100,3 +100,85 @@ Agora, responda ao seguinte, no que diz respeito à composição de componentes:
 -   O que o componente  `App`  é em relação a  `Order`  ?
     
 -   Complete o código acima de forma que os pedidos referentes aos produtos  `headphone`  e  `energyDrink`  sejam filhos de  `App`  .
+
+
+## Lista de componentes e chaves
+
+**Agora vamos fazer este exercício de fixação:**
+
+Lembra do código de exemplo da seção anterior, referente à composição de componentes? Crie os componentes  `Image`  ,  `UserProfile`  e  `App`  no diretório  `src`  do projeto  `fixation-exercises-11-2`  , e vamos olhar especificamente para o arquivo  `App.js`  :
+
+
+```react
+// arquivo App.js, criado pelo create-react-app, modificado
+import React from 'react';
+import './App.css';
+import UserProfile from './UserProfile';
+
+class App extends React.Component {
+  render() {
+    const joao = {
+      id: 102,
+      name: "João",
+      email: "joao@gmail.com",
+      avatar: "https:\/\/cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_640.png"
+    };
+
+    const amelia = {
+      id: 77,
+      name: "Amélia",
+      email: "amelia@gmail.com",
+      avatar: "https:\/\/cdn.pixabay.com/photo/2017/01/31/13/05/cameo-2023867_640.png"
+    };
+
+    return (
+      <div className="App">
+        <UserProfile user={joao} />
+        <UserProfile user={amelia} />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+O componente  `App`  possui dois componentes  `UserProfile`  como filho. Que tal gerar esses componentes filhos dinamicamente? Isso poderia ser feito da seguinte forma:
+
+```react
+// arquivo App.js, criado pelo create-react-app, modificado
+import React from 'react';
+import './App.css';
+import UserProfile from './UserProfile';
+
+class App extends React.Component {
+  render() {
+    const users = [
+      {
+        id: 102,
+        name: "João",
+        email: "joao@gmail.com",
+        avatar: "https:\/\/cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_640.png"
+      },
+      {
+        id: 77,
+        name: "Amélia",
+        email: "amelia@gmail.com",
+        avatar: "https:\/\/cdn.pixabay.com/photo/2017/01/31/13/05/cameo-2023867_640.png"
+      }
+    ];
+
+    return (
+      <div className="App">
+        {users.map(user => <UserProfile user={user} />)}
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+Entretanto, a geração dinâmica dos componentes está incompleta, haja vista que é preciso passar uma  `key`  para  `UserProfile`  . Você pode averiguar isso copiando o código acima e entrando no console do  _Google Chrome_ , que lá vai estar presente um  `warning`  levantado pelo  **_React_** .
+
+Dito isso, altere a chamada do componente de  `UserProfile`  de forma que a lista seja gerada dinamicamente de maneira adequada.
