@@ -1,25 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <button onClick={ () => console.log('textinho qualquer') }>Meu Butão</button>
+        <button onMouseOver={ () => console.log('textinho qualquer 1') }>Meu Butão 1</button>
+        <button onDoubleClick={ () => console.log('textinho qualquer 2') }>Meu Butão 2</button>
+      </div>
+    );
+  }
 }
 
 export default App;
