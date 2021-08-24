@@ -31,19 +31,36 @@
       <p>Color: <span id="value">white</span></p>
       <button id="previous">Previous color</button>
       <button id="next">Next color</button>
+      <button id="random">Random color</button>
     </div>
     <script>
+      // Função cria cores aleatorias
+      function criarCor() {
+        const oneChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+        let cor = '#';
+        const aleatorio = () => Math.floor(Math.random() * oneChar.length);
+        for (let i = 0; i < 6; i += 1) {
+            cor += oneChar[aleatorio()];
+        }
+        return cor;
+      }
+
+
       const ESTADO_INICIAL = {
         colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
         index: 0,
       };
 
+      //Setup
+
       const NEXT_COLOR = 'NEXT_COLOR';
       const PREVIOUS_COLOR = 'PREVIOUS_COLOR';
+      const RANDOM_COLOR = 'RANDOM_COLOR';
 
       // Actions
       const nextColor = () => ({ type: NEXT_COLOR });
       const previousColor = () => ({ type: PREVIOUS_COLOR });
+      const randomColor = () => ({ type: RANDOM_COLOR })
 
       // Reducer
 
@@ -61,6 +78,12 @@
               ...state, // para que as outras propriedades não sejam eliminadas ao fazer alterações
               index: state.index !== 0 ? state.index -1 : (colors.length - 1),
             };
+          case RANDOM_COLOR:
+            colors.push(criarCor());
+            return {
+              ...state,
+              index: colors.length -1,
+            }
           default:
             return state;
         }
@@ -87,6 +110,10 @@
 
       document.querySelector('#next').addEventListener('click', () => {
         store.dispatch(nextColor());
+      })
+
+      document.querySelector('#random').addEventListener('click', () => {
+        store.dispatch(randomColor());
       })
     </script>
   </body>
