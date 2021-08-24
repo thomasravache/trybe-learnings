@@ -47,14 +47,20 @@
 
       // Reducer
 
-      const reducer  = (state = ESTADO_INICIAL, { type }) => {
+      const reducer  = (state = ESTADO_INICIAL, action) => {
         const { colors } = state;
 
-        switch (type) {
+        switch (action.type) {
           case NEXT_COLOR:
-            return { index: state.index < colors.length - 1 && state.index + 1 };
+            return {
+              ...state,
+              index: state.index !== (colors.length - 1) ? state.index + 1 : 0,
+            };
           case PREVIOUS_COLOR:
-            return { index: colors.length > 0 && state.index - 1 };
+            return {
+              ...state, // para que as outras propriedades não sejam eliminadas ao fazer alterações
+              index: state.index !== 0 ? state.index -1 : (colors.length - 1),
+            };
           default:
             return state;
         }
@@ -63,6 +69,25 @@
       // Store
 
       const store = Redux.createStore(reducer);
+
+      //subscribe ==> Serve para que cada vez que o dispatch é chamado ele faz algo. No caso muda a cor de fundo.
+
+      store.subscribe(() => {
+        const { colors, index } = store.getState();
+        const actualColor = colors[index];
+
+        document.body.style.backgroundColor = actualColor;
+        document.querySelector('#value').innerHTML = actualColor;
+      })
+
+      //listeners do botão
+      document.querySelector('#previous').addEventListener('click', () => {
+        store.dispatch(previousColor());
+      })
+
+      document.querySelector('#next').addEventListener('click', () => {
+        store.dispatch(nextColor());
+      })
     </script>
   </body>
 </html>
