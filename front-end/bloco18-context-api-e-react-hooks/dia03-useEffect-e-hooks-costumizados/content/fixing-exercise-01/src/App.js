@@ -9,28 +9,45 @@ function App() {
 
   const [number, setNumber] = useState(generateRandomNumber(1, 100));
   const [hit, setHit] = useState(false);
+  const [timer, setTimer] = useState(10);
 
   useEffect(() => {
-    setInterval(() => {
-      setNumber(generateRandomNumber(1, 100));
-    }, 10000);
+    const myTimer = setInterval(() => {
+      setTimer(timer => timer - 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(myTimer);
+    }
 
   }, []);
 
   useEffect(() => {
+    if (timer === -1) {
+      setNumber(generateRandomNumber(1, 100));
+      setTimer(10);
+    }
+  }, [timer])
+
+  useEffect(() => {
     if (number % 3 === 0 || number % 5 === 0) {
       setHit(true);
-      setTimeout(() => {
+      const myTimeout = setTimeout(() => {
         setHit(false);
-      }, 4000)
-    }
+      }, 4000);
 
+      return () => {
+        console.log('desmontei timeout');
+        clearTimeout(myTimeout); // TODA VEZ QUE O COMPONENTE É DESMONTADO E FIZER PARTE DA CONDIÇÃO EU DOU CLEAR NO TIMEOUT
+      }
+    }
   }, [number])
 
   return (
     <div>
-      <p>{number}</p>
-      <p>{hit && 'Acerto'}</p>
+      <p>Timer: {timer}</p>
+      <p>Número aleatório: {number}</p>
+      <p>{hit && 'Acertou. Este número é divisível por 3 ou por 5!'}</p>
     </div>
   );
 }
