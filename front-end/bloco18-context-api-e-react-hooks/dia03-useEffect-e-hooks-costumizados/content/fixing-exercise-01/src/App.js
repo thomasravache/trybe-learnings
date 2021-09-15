@@ -16,16 +16,14 @@ function App() {
       setTimer(timer => timer - 1);
     }, 1000);
 
-    return () => {
-      clearInterval(myTimer);
-    }
-
-  }, []);
-
-  useEffect(() => {
     if (timer === -1) {
       setNumber(generateRandomNumber(1, 100));
       setTimer(10);
+    }
+
+    return () => {
+      // console.log('desmontado');
+      clearInterval(myTimer); // toda vez que o timer é alterado e antes de desmontar eu dou clean no intervalo pra nao acumular
     }
   }, [timer])
 
@@ -37,8 +35,7 @@ function App() {
       }, 4000);
 
       return () => {
-        console.log('desmontei timeout');
-        clearTimeout(myTimeout); // TODA VEZ QUE O COMPONENTE É DESMONTADO E FIZER PARTE DA CONDIÇÃO EU DOU CLEAR NO TIMEOUT
+        clearTimeout(myTimeout); // toda vez que o timeOut é chamado e antes de desmontar eu dou clean no intervalo pra nao acumular
       }
     }
   }, [number])
