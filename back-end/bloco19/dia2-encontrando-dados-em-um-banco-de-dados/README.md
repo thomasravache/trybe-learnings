@@ -27,7 +27,7 @@
     
 3.  Na tabela  `sakila.address`  , monte uma  _query_ que exiba a  **rua** e o  **distrito** de cada registro em uma coluna apenas, e dê a essa coluna o nome  `Endereço`  .
 
-### Dados repetidos? Aqui Não! Como usar o DISTINCT
+### 3. Dados repetidos? Aqui Não! Como usar o DISTINCT
 
 Perfeito! Então, depois de ter assistido ao vídeo sobre  `DISTINCT`  , dê uma olhada nesta tabela:
 
@@ -61,5 +61,18 @@ Feito isso, você terá acesso à tabela  `Alunos`  do banco de dados  `Escola` 
 4.  Quantas linhas você encontraria na  _query_ anterior?
 5.  Monte uma  _query_ para encontrar somente as  **idades** únicas.
 6.  Quantas linhas você encontraria na  _query_ anterior?
+
+### 4. Contando resultados com o COUNT
+
+
+![](https://s3.us-east-2.amazonaws.com/assets.app.betrybe.com/back-end/sql/images/sampleSelect1-f3fffe6ff17225ce4ffaa1a843e29405.png)
+
+tabela staff
+
+Essa é a tabela  `staff`  do banco de dados  `sakila`  . Como você poderia responder às seguintes questões?
+
+1.  **Quantas senhas** temos cadastradas nessa tabela?
+2.  **Quantas pessoas** temos no total trabalhando para nossa empresa?
+3.  **Quantos emails** temos cadastrados nessa tabela?
 
 ## Vamos praticar
