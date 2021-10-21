@@ -27,4 +27,39 @@
     
 3.  Na tabela  `sakila.address`  , monte uma  _query_ que exiba a  **rua** e o  **distrito** de cada registro em uma coluna apenas, e dê a essa coluna o nome  `Endereço`  .
 
+### Dados repetidos? Aqui Não! Como usar o DISTINCT
+
+Perfeito! Então, depois de ter assistido ao vídeo sobre  `DISTINCT`  , dê uma olhada nesta tabela:
+
+![](https://s3.us-east-2.amazonaws.com/assets.app.betrybe.com/back-end/sql/images/sampleTable1-1df75b03ae8e20c7da20d37904a634e6.png)
+
+Tabela fictícia
+
+Para criá-la no seu banco de dados, abra uma nova janela de  _query_ no  **MySQL Workbench** e execute o seguinte código:
+
+Copiar
+
+```sql
+CREATE DATABASE `Escola`;
+CREATE TABLE IF NOT EXISTS Escola.Alunos (
+    `Nome` VARCHAR(7) CHARACTER SET utf8,
+    `Idade` INT
+);
+INSERT INTO Escola.Alunos VALUES
+    ('Rafael', 25),
+    ('Amanda', 30),
+    ('Roberto', 45),
+    ('Carol', 19),
+    ('Amanda', 25);
+```
+
+Feito isso, você terá acesso à tabela  `Alunos`  do banco de dados  `Escola`  . Levando em conta a explicação que você acabou de ver, como você montaria uma  _query_ para encontrar os seguintes dados?
+
+1.  Monte uma  _query_ para encontrar pares únicos de  **nomes** e  **idades** .
+2.  Quantas linhas você encontraria na  _query_ anterior?
+3.  Monte uma  _query_ para encontrar somente os  **nomes** únicos.
+4.  Quantas linhas você encontraria na  _query_ anterior?
+5.  Monte uma  _query_ para encontrar somente as  **idades** únicas.
+6.  Quantas linhas você encontraria na  _query_ anterior?
+
 ## Vamos praticar
