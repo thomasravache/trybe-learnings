@@ -75,4 +75,15 @@ Essa é a tabela  `staff`  do banco de dados  `sakila`  . Como você poderia res
 2.  **Quantas pessoas** temos no total trabalhando para nossa empresa?
 3.  **Quantos emails** temos cadastrados nessa tabela?
 
+### 5. LIMIT OFFSET - Pulando linhas desnecessárias
+
+
+Agora, olhando o resultado a seguir, qual  _query_ eu teria que montar para trazer os 10 primeiros resultados, a partir de JOHNNY?
+
+![](https://s3.us-east-2.amazonaws.com/assets.app.betrybe.com/back-end/sql/images/limit4-d2cddfe680162164a24131fee86ab759.png)
+
+Tabela actor
+
+Ótimo, tomara que tenha conseguido achar o resultado do último desafio. Você está quase lá! Vamos fechar este dia de aprendizado descobrindo como gerar resultados do tipo que todo chefe gosta de ter: "Tudo bem organizado", usando o  `ORDER BY`  .
+
 ## Vamos praticar
