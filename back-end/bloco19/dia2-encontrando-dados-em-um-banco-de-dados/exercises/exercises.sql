@@ -78,8 +78,6 @@ FROM
 
 -- 12
 
-SELECT * FROM Projects;
-
 SELECT
 	Name
 FROM
@@ -112,8 +110,6 @@ LIMIT 5
 ;
 
 -- 15
-
-SELECT * FROM Scientists;
 
 SELECT
 	CONCAT('Existem ', COUNT(Name), ' cientistas na tabela Scientists.')
