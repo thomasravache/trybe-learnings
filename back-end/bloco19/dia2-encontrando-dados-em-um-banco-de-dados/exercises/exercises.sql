@@ -22,7 +22,12 @@ SELECT * FROM Scientists;
 
 -- 06
 
-SELECT Name AS `Nome do Projeto`, Hours AS `Tempo de Trabalho` FROM Projects;
+SELECT
+  Name AS `Nome do Projeto`,
+  Hours AS `Tempo de Trabalho`
+FROM
+  Projects
+;
 
 -- 07
 
