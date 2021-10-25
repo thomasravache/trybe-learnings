@@ -70,3 +70,20 @@ Para consolidar esse conhecimento, brinque com os resultados que serão encontra
     
 
 **P.S.** As classificações podem ser verificadas acima, na seção "Alavancando o poder dos principais comparadores lógicos".
+
+### Encontrando e separando resultados que incluem datas
+
+
+Você já tem as ferramentas em mãos, então quero ver os dedos se mexendo.  **Let's GO!!!**
+
+![](https://media.giphy.com/media/XIqCQx02E1U9W/giphy.gif)
+
+Aquele momento quando você entra no fluxo
+
+1.  Quantos pagamentos temos com a data de retorno  `2005-05-25`  ? Há múltiplas maneiras possíveis de encontrar a resposta.
+    
+2.  Quantos pagamentos foram feitos entre  `01/07/2005`  e  `22/08/2005`  ?
+    
+3.  Usando a tabela  `rental`  , extraia data, ano, mês, dia, hora, minuto e segundo dos registros com  `rental_id`  = 10330. Utilize a coluna  `rental_date`  para extrair as informações.
+    
+4.  Monte uma  _query_ que retorne todos os dados do pagamento feito no dia  `28/07/2005`  a partir das  `22 horas`  .
