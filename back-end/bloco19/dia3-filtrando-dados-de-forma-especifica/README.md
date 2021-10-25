@@ -71,7 +71,7 @@ Para consolidar esse conhecimento, brinque com os resultados que serão encontra
 
 **P.S.** As classificações podem ser verificadas acima, na seção "Alavancando o poder dos principais comparadores lógicos".
 
-### Encontrando e separando resultados que incluem datas
+### 4. Encontrando e separando resultados que incluem datas
 
 
 Você já tem as ferramentas em mãos, então quero ver os dedos se mexendo.  **Let's GO!!!**
