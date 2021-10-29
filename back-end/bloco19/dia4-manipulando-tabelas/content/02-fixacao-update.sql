@@ -38,8 +38,8 @@ SET
 	rental_rate = (
 		CASE
 			WHEN length <= 100 THEN 10
-            WHEN length > 100 THEN 20
-            ELSE rental_rate
+      WHEN length > 100 THEN 20
+      ELSE rental_rate
 		END
     );
     
