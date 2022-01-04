@@ -1,14 +1,14 @@
 -- 01 SUBQUERY
 SELECT
-  title
+  m.title
 FROM
-  Movies
+  Movies AS m
 WHERE
-  id IN (
+  m.id IN (
     SELECT movie_id
     FROM BoxOffice
     WHERE (domestic_sales + international_sales) >= 500000000
-  ) AND length_minutes > 110;
+  ) AND m.length_minutes > 110;
 
 -- 02 JOIN
 SELECT
