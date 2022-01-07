@@ -1,7 +1,10 @@
 const imc = require('./imc');
+const { questionFloat } = require('readline-sync');
 
 function main() {
-  console.log(`seu imc é de ${imc(1.80, 60)}`);
+  const weight = questionFloat('Informe seu peso\n');
+  const height = questionFloat('Informe a sua altura\n');
+  console.log(`seu imc é de ${imc(height, weight)}`);
 }
 
 main();
