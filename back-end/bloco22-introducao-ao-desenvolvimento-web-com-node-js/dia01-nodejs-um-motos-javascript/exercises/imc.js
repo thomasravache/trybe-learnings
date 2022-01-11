@@ -26,3 +26,5 @@ const height = questionFloat('Informe a sua altura\n');
 const { value, status } = imcCalculator(height, weight);
 
 console.log(`seu IMC é de ${value}. Status: ${status}.`);
+
+module.exports = imcCalculator;
