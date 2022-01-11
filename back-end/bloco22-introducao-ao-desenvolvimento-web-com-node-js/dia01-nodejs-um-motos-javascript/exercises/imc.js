@@ -1,6 +1,8 @@
 const { questionFloat } = require('readline-sync');
 
-const imcCalculator = (height, weight) => {
+const imcCalculator = () => {
+  const weight = questionFloat('Informe seu peso\n');
+const height = questionFloat('Informe a sua altura\n');
   const value = (weight / Math.pow(height, 2)).toFixed(2);
   let status = null;
 
@@ -18,13 +20,7 @@ const imcCalculator = (height, weight) => {
     status = 'Obesidade graus III e IV';
   }
 
-  return { value, status };
+  return console.log(`seu IMC é de ${value}. Status: ${status}.`);
 };
-
-const weight = questionFloat('Informe seu peso\n');
-const height = questionFloat('Informe a sua altura\n');
-const { value, status } = imcCalculator(height, weight);
-
-console.log(`seu IMC é de ${value}. Status: ${status}.`);
 
 module.exports = imcCalculator;
