@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const numberStatus = require('./numberStatus');
 const fs = require('fs');
 const sinon = require('sinon');
-const myReadFileFunction = require('./readFile');
+const myWriteFileFunction = require('./writeFile');
 
 describe('Exercício de Status de um número', () => {
   it('Verifica se o parâmetro é um número', () => {
@@ -35,40 +35,40 @@ describe('Testando a chamada da função "readFile"', () => {
   const FILE_NAME = 'arquivo.txt';
   const FILE_CONTENT = 'Um texto qualquer';
 
-  describe('Caso a função consiga ler o arquivo', () => {
+  describe('Caso a função consiga escrever no arquivo', () => {
     before(() => {
-      sinon.stub(fs.promises, 'readFile').resolves(FILE_CONTENT);
+      sinon.stub(fs.promises, 'writeFile').resolves(FILE_CONTENT);
     })
 
-    it('Verifica se retorna uma string', async () => {
-      const result = await myReadFileFunction(FILE_NAME, FILE_CONTENT);
+    it('Verifica se o parâmetro é uma string', async () => {
+      const result = await myWriteFileFunction(FILE_NAME, 1);
 
-      expect(result).to.be.a('string');
+      expect(result).to.be.equal('não é uma string');
     });
-    it('Verifica se após a leitura retorna um "ok"', () => {
-      const result = await myReadFileFunction(FILE_NAME, FILE_CONTENT);
+    it('Verifica se após a escrita retorna um "ok"', async () => {
+      const result = await myWriteFileFunction(FILE_NAME, FILE_CONTENT);
 
       expect(result).to.be.equal('ok');
     })
 
     after(() => {
-      fs.promises.readFile.restore();
+      fs.promises.writeFile.restore();
     })
   });
 
-  describe('Caso a função não consiga ler o arquivo', () => {
+  describe('Caso a função não consiga escrever no arquivo', () => {
     before(() => {
-      sinon.stub(fs.promises, 'readFile').rejects();
+      sinon.stub(fs.promises, 'writeFile').rejects();
     });
 
     it('Verifica se retorna a string "Deu ruim"', async () => {
-      const result = await myReadFileFunction(FILE_NAME, FILE_CONTENT);
+      const result = await myWriteFileFunction(FILE_NAME, FILE_CONTENT);
 
       expect(result).to.be.equal('Deu ruim');
     });
 
     after(() => {
-      fs.promises.readFile.restore();
-    })
+      fs.promises.writeFile.restore();
+    });
   });
 });
