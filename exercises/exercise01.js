@@ -12,6 +12,4 @@ const testingPromise = (a, b, c) => {
   return myPromise;
 };
 
-testingPromise('oi', 10, 3)
-  .then((result) => console.log(`O resultado é: ${result}`))
-  .catch((err) => console.log(err));
+module.exports = testingPromise;
