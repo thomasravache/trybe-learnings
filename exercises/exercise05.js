@@ -21,5 +21,5 @@ Promise.all(['Finalmente', 'estou', 'usando', 'Promisse.all', '!!!'])
       fs.readFile(`./${fileName}`, 'utf-8')
         .then((content) => console.log(content));
     });
-    fs.writeFile('filleAll.txt', allContent);
+    fs.writeFile('fileAll.txt', allContent);
   });
