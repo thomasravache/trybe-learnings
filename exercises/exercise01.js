@@ -2,7 +2,7 @@ const testingPromise = (a, b, c) => {
   const myPromise = new Promise((resolve, reject) => {
     const haveAnyNoNumber = [a, b, c].some((num) => typeof(num) !== 'number');
 
-    if(haveAnyNoNumber) return reject('Informe apenas números');
+    if(haveAnyNoNumber) reject('Informe apenas números');
 
     const resultado = (a + b) * c;
 
