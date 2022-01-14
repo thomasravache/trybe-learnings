@@ -22,6 +22,17 @@ app.get('/recipes', (_req, res) => {
 
 app.get('/drinks', (_req, res) => {
   res.json(drinks);
+});
+
+app.get('/drinks/:id', (req, res) => {
+  const { id } = req.params;
+
+  const drink = drinks
+    .find((d) => d.id = parseInt(id));
+
+  if (!drink) return res.status(404).json({ message: 'Drink not found' });
+
+  res.status(200).json(drink);
 })
 
 app.listen(3001, () => {
