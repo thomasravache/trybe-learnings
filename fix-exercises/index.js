@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
 
 const recipes = [
   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
@@ -60,6 +63,21 @@ app.get('/drinks/:id', (req, res) => {
   if(!drink) return res.status(404).json({ message: 'Drink not found' });
 
   res.status(200).json(drink);
+});
+
+app.post('/recipes', function (req, res) {
+  const { id, name, price, waitTime } = req.body;
+  recipes.push({ id, name, price, waitTime });
+  res.status(201).json({ message: 'Recipe created successfully!'});
+});
+
+app.post('/drinks', (req, res) => {
+  const { name, price } = req.body;
+  const maxId = drinks
+    .map(({ id }) => id)
+    .reduce((a, b) => Math.max(a, b));
+  drinks.push({ id: maxId + 1, name, price });
+  res.status(201).json({ message: 'Drink created successfully' });
 });
 
 app.listen(3001, () => {
