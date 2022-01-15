@@ -48,6 +48,21 @@ app.get('/simpsons/:id', async (req, res) => {
   res.status(200).json(person);
 });
 
+app.post('/simpsons', async (req, res) => {
+  const simpsons = await readSimpsonsFile();
+  const { id, name } = req.body;
+
+  const alreadyHaveThisPerson = simpsons
+    .some((simpson) => parseInt(simpson.id) === parseInt(id));
+
+  if(alreadyHaveThisPerson) return res.status(409).json({ message: 'id already exists' });
+
+  simpsons.push({ id: id.toString(), name });
+  await writeSimpsonsFile(simpsons);
+
+  res.status(204).end();
+});
+
 app.listen(3001, () => {
   console.log('Ouvindo na porta 3001');
 });

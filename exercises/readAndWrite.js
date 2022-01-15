@@ -5,8 +5,8 @@ const readSimpsonsFile = async () => {
   return JSON.parse(fileContent);
 };
 
-const writeSimpsonsFile = () => {
-
+const writeSimpsonsFile = async (fileContent) => {
+  await fs.writeFile('./simpsons.json', JSON.stringify(fileContent));
 };
 
 module.exports = {
