@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const { readSimpsonsFile, writeSimpsonsFile } = require('./readAndWrite');
 
 const app = express();
 
@@ -27,6 +28,12 @@ app.put('/users/:name/:age', (req, res) => {
   const { name, age } = req.params;
 
   res.status(200).json({ message: `Seu nome é ${name} e você tem ${age} anos de idade` });
+});
+
+app.get('/simpsons', async (_req, res) => {
+  const simpsonsPersons = await readSimpsonsFile();
+
+  res.status(200).json(simpsonsPersons);
 });
 
 app.listen(3001, () => {
