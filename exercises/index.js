@@ -36,6 +36,18 @@ app.get('/simpsons', async (_req, res) => {
   res.status(200).json(simpsonsPersons);
 });
 
+app.get('/simpsons/:id', async (req, res) => {
+  const simpsonsPersons = await readSimpsonsFile();
+  const { id } = req.params;
+
+  const person = simpsonsPersons
+    .find((p) => p.id === id);
+
+  if(!person) return res.status(404).json({ message: 'simpson not found' });
+
+  res.status(200).json(person);
+});
+
 app.listen(3001, () => {
   console.log('Ouvindo na porta 3001');
 });
