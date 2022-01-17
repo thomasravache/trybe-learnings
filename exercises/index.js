@@ -2,8 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { readSimpsonsFile, writeSimpsonsFile } = require('./readAndWrite');
 const authentication = require('./authentication');
-
-
+const generateToken = require('./generateToken');
 
 const app = express();
 
@@ -66,6 +65,18 @@ app.post('/simpsons', async (req, res) => {
   await writeSimpsonsFile(simpsons);
 
   res.status(204).end();
+});
+
+app.post('/signup', (req, res) => {
+  const { email, password, firstName, phone } = req.body;
+  const validation = [email, password, firstName, phone]
+    .some((field) => !field);
+
+  if(validation) return res.status(401).json({ message: 'missing fields' });
+
+  const token = generateToken();
+
+  res.status(200).json({ token: token });
 });
 
 app.all('*', (req, res) => {
