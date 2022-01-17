@@ -1,10 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { readSimpsonsFile, writeSimpsonsFile } = require('./readAndWrite');
+const authentication = require('./authentication');
+
+
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(express.json());
+app.use(authentication);
 
 app.get('/ping', (_req, res) => {
   res.status(200).json({ message: 'pong' });
