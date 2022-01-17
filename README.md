@@ -1,1 +1,1 @@
-Aqui serão armazenados os exercícios efetuados durante todo o curso de Desenvolvimento Web da Trybe!
+Exercícios do bloco 22.4
