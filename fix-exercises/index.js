@@ -35,6 +35,8 @@ app.get('/recipes/search', (req, res) => {
 
   res.status(200).json(filteredRecipes);
 });
+// http :3001/recipes/search name==Macarrão minPrice==1 maxPrice==34
+// http://localhost:3001/recipes/search?name=Macarrão&minPrice=1&maxPrice=34
 
 app.get('/drinks/search', (req, res) => {
   const { name } = req.query;
