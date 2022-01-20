@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Books = require('../model/Book');
+const Books = require('../model/bookModel');
 
 router.get('/', async (_req, res) => {
   const books = await Books.getAll();
@@ -16,6 +16,15 @@ router.get('/search', async (req, res) => {
   if(!books) return res.status(404).json({ message: 'Not found.' })
 
   return res.status(200).json(books);
+});
+
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  const book = await Books.getById(id);
+
+  if (!book) return res.status(404).json({ message: 'Not found' });
+
+  return res.status(200).json(book);
 });
 
 module.exports = router;
