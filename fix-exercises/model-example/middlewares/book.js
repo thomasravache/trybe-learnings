@@ -13,7 +13,9 @@ router.get('/search', async (req, res) => {
   const { authorId } = req.query;
   const books = await Books.getAuthorById(authorId);
 
-  res.status(200).json(books);
+  if(!books) return res.status(404).json({ message: 'Not found.' })
+
+  return res.status(200).json(books);
 });
 
 module.exports = router;

@@ -24,6 +24,8 @@ const getAuthorById = async (authorId) => {
       author_id = ?
   `, [authorId]);
 
+  if(books.length === 0) return null;
+
   return books.map(serialize);
 };
 
