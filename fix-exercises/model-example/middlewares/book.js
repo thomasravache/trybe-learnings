@@ -9,4 +9,11 @@ router.get('/', async (_req, res) => {
   res.status(200).json(books);
 });
 
+router.get('/search', async (req, res) => {
+  const { authorId } = req.query;
+  const books = await Books.getAuthorById(authorId);
+
+  res.status(200).json(books);
+});
+
 module.exports = router;
