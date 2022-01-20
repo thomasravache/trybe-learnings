@@ -1,9 +1,17 @@
 const connection = require('./connection');
 
-const getAll = async () => {
-  const [book] = await connection.execute('SELECT * FROM books');
+const serialize = (book) => {
+  return {
+    id: book.id,
+    authorId: book.author_id,
+    title: book.title
+  };
+}
 
-  return book;
+const getAll = async () => {
+  const [books] = await connection.execute('SELECT * FROM books');
+
+  return books.map(serialize);
 };
 
 module.exports = {
