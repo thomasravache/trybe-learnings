@@ -26,7 +26,7 @@ const getById = async (id) => {
   return user.map(serialize);
 };
 
-const create = async (firstName, lastName, email, password) => {
+const validate = (firstName, lastName, email, password) => {
   const everyIsNull = [firstName, lastName, email, password].every((field) => !field);
 
   if (everyIsNull) throw { error: true, message: 'Todos os campos são obrigatórios' };
@@ -35,14 +35,38 @@ const create = async (firstName, lastName, email, password) => {
   if (!email) throw { error: true, message: 'O campo "email" é obrigatório' };
   if (!password) throw { error: true, message: 'O campo "password" é obrigatório' };
   if (password.length < 6) throw { error: true, message: 'O campo "password" deve ter pelo menos 6 caracteres' };
+};
+
+const create = async (firstName, lastName, email, password) => {
+  validate(firstName, lastName, email, password);
 
   const [newUser] = await connection.execute(`INSERT INTO user (first_name, last_name, email, password) VALUES (?, ?, ?, ?)`,
   [firstName, lastName, email, password]);
+
   return newUser;
+};
+
+const update = async (id, firstName, lastName, email, password) => {
+  validate(firstName, lastName, email, password);
+
+  const [modificatedUser] = await connection.execute(`
+    UPDATE
+      user
+    SET
+      first_name = ?,
+      last_name = ?,
+      email = ?,
+      password = ?
+    WHERE
+      id = ?
+  `, [firstName, lastName, email, password, id]);
+
+  return modificatedUser;
 };
 
 module.exports = {
   getAll,
   getById,
   create,
+  update,
 };

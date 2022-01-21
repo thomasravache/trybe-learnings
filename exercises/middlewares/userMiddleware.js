@@ -47,6 +47,30 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+router.put('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { firstName, lastName, email, password } = req.body;
+    const user = await User.getById(id);
+
+    if (user.length === 0) return res.status(404).json({ message: 'Usuário não encontrado' });
+
+    await User.update(id, firstName, lastName, email, password);
+
+    const result = {
+      id: parseInt(id),
+      firstName,
+      lastName,
+      email,
+    };
+
+    res.status(200).json(result);
+  } catch (e) {
+    if(e.error === true) return res.status(422).json(e);
+    return next(e);
+  }
+})
+
 // ---------- MIDDLEWARE PARA TRATAMENTO DE ERROS DE APLICAÇÃO ------------
 
 router.use((err, _req, res, _next) => {
