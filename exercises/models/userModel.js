@@ -1,5 +1,31 @@
 const connection = require('./connection');
 
+const serialize = (userData) => {
+  return {
+    id: userData.id,
+    firstName: userData.first_name,
+    lastName: userData.last_name,
+    email: userData.email,
+    password: userData.password,
+  };
+}
+
+const getAll = async () => {
+  const [users] = await connection.execute(`
+    SELECT * FROM user
+  `);
+
+  return users.map(serialize);
+};
+
+const getById = async (id) => {
+  const [user] = await connection.execute(`
+    SELECT * FROM user WHERE id = ?
+  `, [id]);
+
+  return user.map(serialize);
+};
+
 const create = async (firstName, lastName, email, password) => {
   const everyIsNull = [firstName, lastName, email, password].every((field) => !field);
 
@@ -16,5 +42,7 @@ const create = async (firstName, lastName, email, password) => {
 };
 
 module.exports = {
+  getAll,
+  getById,
   create,
 };
