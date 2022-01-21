@@ -27,4 +27,13 @@ router.get('/:id', async (req, res) => {
   return res.status(200).json(book);
 });
 
+router.post('/', async (req, res) => {
+  const { title, authorId } = req.body;
+  if (Books.isNotValid(title, authorId)) return res.status(400).json({ message: 'Dados inválidos' });
+
+  await Books.create(title, authorId);
+
+  return res.status(201).json({ message: 'Livro criado com sucesso!' })
+})
+
 module.exports = router;
