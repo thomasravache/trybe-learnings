@@ -1,21 +1,12 @@
 const connection = require('./connection');
-const Author = require('./authorModel');
-
-const serialize = (book) => {
-  return {
-    id: book.id,
-    authorId: book.author_id,
-    title: book.title
-  };
-}
 
 const getAll = async () => {
   const [books] = await connection.execute('SELECT * FROM books');
 
-  return books.map(serialize);
+  return books;
 };
 
-const getAuthorById = async (authorId) => {
+const getBooksByAuthorId = async (authorId) => {
   const [books] = await connection.execute(`
     SELECT
       *
@@ -25,13 +16,11 @@ const getAuthorById = async (authorId) => {
       author_id = ?
   `, [authorId]);
 
-  if(books.length === 0) return null;
-
-  return books.map(serialize);
+  return books;
 };
 
 const getById = async (bookId) => {
-  const [books] = await connection.execute(`
+  const [book] = await connection.execute(`
     SELECT
       *
     FROM
@@ -40,18 +29,7 @@ const getById = async (bookId) => {
       id = ?
   `, [bookId]);
 
-  return books[0];
-}
-
-const isNotValid = async (title, authorId) => {
-  const isValidTitle = (!title || title.length >= 3);
-  const authors = await Author.getAll();
-  const isValidAuthorId = authors.some((author) => author.id === authorId);
-  console.log(isValidAuthorId);
-
-  if (isValidTitle && isValidAuthorId) return true;
-
-  return false;
+  return book[0];
 }
 
 const create = async (title, authorId) => await connection.execute(`
@@ -60,8 +38,7 @@ const create = async (title, authorId) => await connection.execute(`
 
 module.exports = {
   getAll,
-  getAuthorById,
+  getBooksByAuthorId,
   getById,
   create,
-  isNotValid,
 };
