@@ -29,7 +29,7 @@ const getById = async (bookId) => {
       id = ?
   `, [bookId]);
 
-  return book[0];
+  return book;
 }
 
 const create = async (title, authorId) => await connection.execute(`

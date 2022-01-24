@@ -9,27 +9,42 @@ const serialize = (book) => {
   };
 };
 
-const getAll = async () => await Book.getAll().map(serialize);
+const getAll = async () => {
+  const books = await Book.getAll();
+
+  return books.map(serialize);
+};
 
 const getBooksByAuthorId = async (id) => {
-  const books = Book.getBooksByAuthorId(id);
+  const books = await Book.getBooksByAuthorId(id);
 
-  if(books.length === 0) return null;
+  if(books.length === 0) throw {
+    code: 'notFound',
+    message: `Livros não encontrados para o id ${id} de autor.`,
+  };
 
   return books.map(serialize);
 };
 
 const getById = async (id) => {
-  const book = await Book.getById(id);
+  const books = await Book.getById(id);
 
-  return book;
+  if (books.length === 0) throw {
+    code: 'notFound',
+    message: `Autor com o id ${id} não foi encontrado.`,
+  }
+
+  return books[0];
 }
 
 const create = async (title, authorId) => {
   const authors = await Author.getAll();
-  const isNotValidAuthorId = authors.some((author) => author.id !== authorId);
+  const isNotValidAuthorId = authors.every((author) => author.id !== authorId);
 
-  if (isNotValidAuthorId) throw { error: { code: 'notFound', message: `Não encontramos um ator com o id ${authorId} para realizar a inserção` } };
+  if (isNotValidAuthorId) throw {
+    code: 'notFound',
+    message: `Não encontramos um ator com o id ${authorId} para realizar a inserção`,
+  };
 
   return await Book.create(title, authorId);
 };
