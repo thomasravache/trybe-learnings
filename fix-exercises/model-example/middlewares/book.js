@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Books = require('../model/bookModel');
+const Books = require('../models/bookModel');
 
 router.get('/', async (_req, res) => {
   const books = await Books.getAll();
