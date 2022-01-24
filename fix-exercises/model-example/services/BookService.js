@@ -1,5 +1,5 @@
-const Book = require('../models/bookModel');
-const Author = require('../models/authorModel');
+const Book = require('../models/BookModel');
+const Author = require('../models/AuthorModel');
 
 const serialize = (book) => {
   return {
