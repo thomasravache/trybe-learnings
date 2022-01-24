@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const booksRouter = require('./middlewares/book');
+const booksRouter = require('./controllers/BookController');
 
 const PORT = 3000;
 const app = express();
