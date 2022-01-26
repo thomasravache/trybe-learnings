@@ -1,4 +1,5 @@
-const connection = require('./connection');
+// const connection = require('./connection');
+import connection from './connection.js';
 
 const formatedCep = (cepData) => {
   const CEP_REGEX = /\d{5}-\d{3}/;
@@ -52,7 +53,13 @@ const create = async (cep, logradouro, bairro, localidade, uf) => {
   return await connection.execute(query, [readableCep, logradouro, bairro, localidade, uf]);
 };
 
-module.exports = {
+// module.exports = {
+//   getAll,
+//   getByCepNumber,
+//   create,
+// };
+
+export default {
   getAll,
   getByCepNumber,
   create,

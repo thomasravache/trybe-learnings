@@ -1,8 +1,12 @@
-const express = require('express');
+// const express = require('express');
+import express from 'express';
 const cepRouter = express.Router();
-const rescue = require('express-rescue');
-const Joi = require('joi');
-const CepService = require('../services/CepService');
+// const rescue = require('express-rescue');
+import rescue from 'express-rescue';
+// const Joi = require('joi');
+import Joi from 'joi';
+// const CepService = require('../services/CepService');
+import CepService from '../services/CepService.js';
 
 cepRouter.get('/:cep', rescue(async (req, res) => {
   const { cep } = req.params;
@@ -38,4 +42,5 @@ cepRouter.post('/', rescue(async (req, res, next) => {
   res.status(201).json(result);
 }));
 
-module.exports = cepRouter;
+// module.exports = cepRouter;
+export default cepRouter;

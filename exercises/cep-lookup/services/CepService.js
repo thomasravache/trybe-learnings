@@ -1,4 +1,6 @@
-const CepModel = require('../models/CepModel');
+// const CepModel = require('../models/CepModel');
+import CepModel from '../models/CepModel.js'
+import ViaCep from '../models/external-api/viacep.js';
 
 const isValidCep = (cep) => {
   const isValidCep = /\d{5}-\d{3}/;
@@ -19,7 +21,22 @@ const getByCepNumber = async (cepNumber) => {
   
   const cep = await CepModel.getByCepNumber(cepNumber);
 
-  if (cep.length === 0) throw { code: 'notFound', message: 'CEP não encontrado' };
+  if (cep.length === 0) {
+    const viaCepApiCep = await ViaCep.getCepByNumber(cepNumber);
+
+    if (!viaCepApiCep) throw { code: 'notFound', message: 'CEP não encontrado' };
+
+    const { cep, logradouro, bairro, localidade, uf } = viaCepApiCep;
+    await CepModel.create(cep, logradouro, bairro, localidade, uf);
+
+    return {
+      cep,
+      logradouro,
+      bairro,
+      localidade,
+      uf,
+    };
+  };
 
   return cep[0];
 };
@@ -35,8 +52,14 @@ const create = async (cep, logradouro, bairro, localidade, uf) => {
   return await CepModel.create(cep, logradouro, bairro, localidade, uf);
 };
 
-module.exports = {
+// module.exports = {
+//   getAll,
+//   getByCepNumber,
+//   create,
+// };
+
+export default {
   getAll,
   getByCepNumber,
   create,
-};
+}
