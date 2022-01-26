@@ -1,5 +1,25 @@
 const connection = require('./connection');
 
+const formatedCep = (cepData) => {
+  const CEP_REGEX = /\d{5}-\d{3}/;
+
+  if (CEP_REGEX.test(cepData)) return cepData;
+
+  return cepData.replace(/(\d{5})(\d{3})/, '$1-$2');
+};
+
+const serializeCep = (cepData) => {
+  return {
+    cep: formatedCep(cepData.cep),
+    logradouro: cepData.logradouro,
+    bairro: cepData.bairro,
+    localidade: cepData.localidade,
+    uf: cepData.uf,
+  }
+};
+
+const turnCepReadable = (cep) => cep.replace('-', '');
+
 const getAll = async () => {
   const query = `
     SELECT * FROM ceps
@@ -7,20 +27,33 @@ const getAll = async () => {
 
   const [ceps] = await connection.execute(query);
 
-  return ceps;
+  console.log(ceps.map(serializeCep));
+
+  return ceps.map(serializeCep);
 };
 
-const getByCepName = async (name) => {
+const getByCepNumber = async (cepNumber) => {
+  const readableCep = turnCepReadable(cepNumber);
   const query = `
     SELECT * FROM ceps WHERE cep = ?
   `;
 
-  const [cep] = await connection.execute(query, [name]);
+  const [cep] = await connection.execute(query, [readableCep]);
 
-  return cep;
+  return cep.map(serializeCep);
+};
+
+const create = async (cep, logradouro, bairro, localidade, uf) => {
+  const readableCep = turnCepReadable(cep);
+  const query = `
+    INSERT INTO ceps (cep, logradouro, bairro, localidade, uf) VALUES (?, ?, ?, ?, ?)
+  `;
+
+  return await connection.execute(query, [readableCep, logradouro, bairro, localidade, uf]);
 };
 
 module.exports = {
   getAll,
-  getByCepName,
+  getByCepNumber,
+  create,
 };
