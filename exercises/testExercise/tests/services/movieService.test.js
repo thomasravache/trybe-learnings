@@ -54,4 +54,20 @@ describe('----- TESTES DA CAMADA DE SERVICE -----\n', () => {
       });
     })
   });
+
+  describe('(getById) Procura um filme no BD', () => {
+
+    describe('quando o filme é encontrado', async () => {
+      before(async () => {
+        const payload = {
+          title: 'Teste',
+          directedBy: 'Teste',
+          releaseYear: 1970,
+        }
+
+        sinon.stub(MoviesModel, 'getById').resolves()
+      })
+    });
+
+  });
 });

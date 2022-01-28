@@ -51,7 +51,7 @@ describe('----- TESTES DA CAMADA DE MODEL -----\n', () => {
         connection.execute.restore();
       })
   
-      it('quando o filme não é encontrado', async () => {
+      it('deve retornar um array vazio', async () => {
         const response = await MoviesModel.getById(ID_EXAMPLE);
 
         expect(response).to.be.an('array');
