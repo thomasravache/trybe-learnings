@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./tests/**/*$NAME*.test.js --reporter nyan --exit",
+    "test": "mocha ./tests/**/*$NAME*.test.js --exit",
     "dev": "nodemon index.js"
   },
   "keywords": [],
