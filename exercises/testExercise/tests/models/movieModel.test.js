@@ -5,7 +5,7 @@ const MoviesModel = require('../../models/movieModel');
 const connection = require('../../models/connection');
 
 describe('----- TESTES DA CAMADA DE MODEL -----\n', () => {
-  describe('(create) Insere um novo filme no BD', () => {
+  describe('--- (create) --- Insere um novo filme no BD', () => {
     const payloadMovie = {
       title: 'Example Movie',
       directedBy: 'Jane Dow',
@@ -39,7 +39,7 @@ describe('----- TESTES DA CAMADA DE MODEL -----\n', () => {
     });
   });
 
-  describe('(getById) Procura um filme no BD', () => {
+  describe('--- (getById) --- Procura um filme no BD', () => {
     describe('quando o filme não é encontrado', () => {
       const ID_EXAMPLE = 1;
   
