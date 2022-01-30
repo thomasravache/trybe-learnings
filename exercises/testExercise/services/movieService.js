@@ -20,6 +20,15 @@ const create = async ({ title, directedBy, releaseYear }) => {
   };
 };
 
+const getById = async ({ id }) => {
+  const foundedMovie = await MoviesModel.getById(id);
+
+  if (foundedMovie.length === 0) throw { code: 'notFound', message: 'Filme não encontrado' };
+
+  return foundedMovie;
+};
+
 module.exports = {
   create,
+  getById,
 };
