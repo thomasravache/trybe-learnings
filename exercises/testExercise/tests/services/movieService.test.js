@@ -109,8 +109,7 @@ describe('----- TESTES DA CAMADA DE SERVICE -----\n', () => {
 
         it('o erro deve ser um objeto com code: "notFound", message: "Filme não encontrado"', async () => {
           try {
-            const response = await MoviesService.getById(ID_EXAMPLE);
-            expect(response).to.throw();
+            await MoviesService.getById(ID_EXAMPLE);
           } catch (e) {
             expect(e).to.be.a('object');
             expect(e).to.deep.equal({ code: 'notFound', message: 'Filme não encontrado' });

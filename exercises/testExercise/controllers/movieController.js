@@ -32,7 +32,7 @@ movieRouter.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
   
-    const result = await MoviesService.getById(id);
+    const result = await MoviesService.getById({ id });
   
     return res.status(200).json(result);
   } catch (e) {
