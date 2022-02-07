@@ -111,6 +111,7 @@ describe('----- TESTES DA CAMADA DE SERVICE -----\n', () => {
           try {
             await MoviesService.getById(ID_EXAMPLE);
           } catch (e) {
+            expect(e).to.exist;
             expect(e).to.be.a('object');
             expect(e).to.deep.equal({ code: 'notFound', message: 'Filme não encontrado' });
           }
