@@ -1,6 +1,11 @@
 const { Book } = require('../models');
 
-const findAll = async () => Book.findAll();
+const findAll = async () => Book.findAll({
+  order: [
+    ['title', 'ASC'],
+    ['created_at', 'ASC']
+  ]
+});
 
 const findById = async ({ id }) => {
   const book = await Book.findByPk(id);
@@ -20,6 +25,16 @@ const updateById = async ({ id, title, author, pageQuantity }) => {
   return updatedBook
 };
 
+const findByAuthorName = async ({ authorName }) => {
+  const books = await Book.findAll({ where: { author: authorName } });
+
+  console.log(books);
+
+  // if (!book) throw new Error('Book not found');
+
+  return books;
+};
+
 const remove = async ({ id }) => Book.destroy({ where: { id } });
 
 module.exports = {
@@ -28,4 +43,5 @@ module.exports = {
   create,
   updateById,
   remove,
+  findByAuthorName,
 };

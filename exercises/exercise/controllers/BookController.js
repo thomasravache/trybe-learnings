@@ -65,12 +65,25 @@ const remove = async (req, res, next) => {
   }
 };
 
+const findByAuthorName = async (req, res, next) => {
+  try {
+    const { name } = req.params;
+
+    const books = await BookService.findByAuthorName({ authorName: name });
+
+    return res.status(200).json(books);
+  } catch (e) {
+    return next(e);
+  }
+};
+
 /* ----- ROTAS ------- */
 BookRouter.get('/', findAll);
 BookRouter.get('/:id', findById);
 BookRouter.post('/', create);
 BookRouter.put('/:id', updateById);
 BookRouter.delete('/:id', remove);
+BookRouter.get('/author/:name', findByAuthorName);
 
 module.exports = {
   BookRouter,
