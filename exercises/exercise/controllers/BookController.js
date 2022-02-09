@@ -3,11 +3,15 @@ const BookService = require('../services/BookService');
 
 const BookRouter = express.Router();
 
-const findAll = async (req, res) => {
-  const books = await BookService.findAll();
-  console.log(books);
-
-  return res.status(200).json(books);
+const findAll = async (req, res, next) => {
+  try {
+    const books = await BookService.findAll();
+    console.log(books);
+  
+    return res.status(200).json(books);
+  } catch (e) {
+    return next(e);
+  }
 };
 
 const findById = async (req, res, next) => {
@@ -48,13 +52,25 @@ const updateById = async (req, res, next) => {
   } catch (e) {
     return next(e);
   }
-}
+};
+
+const remove = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await BookService.remove({ id });
+
+    return res.status(200).json({ message: "Livro removido com sucesso" });
+  } catch (e) {
+    return next(e);
+  }
+};
 
 /* ----- ROTAS ------- */
 BookRouter.get('/', findAll);
 BookRouter.get('/:id', findById);
 BookRouter.post('/', create);
 BookRouter.put('/:id', updateById);
+BookRouter.delete('/:id', remove);
 
 module.exports = {
   BookRouter,
