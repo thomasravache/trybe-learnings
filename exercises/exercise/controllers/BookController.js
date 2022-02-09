@@ -22,9 +22,24 @@ const findById = async (req, res, next) => {
   }
 };
 
+const create = async (req, res, next) => {
+  try {
+    const { title, author, pageQuantity } = req.body;
+    console.log(author);
+    if (!title || !author) throw new Error('Preencher campos obrigatórios');
+
+    const newBook = await BookService.create({ title, author, pageQuantity });
+
+    return res.status(201).json(newBook);
+  } catch (e) {
+    return next(e);
+  }
+};
+
 /* ----- ROTAS ------- */
 BookRouter.get('/', findAll);
 BookRouter.get('/:id', findById);
+BookRouter.post('/', create);
 
 module.exports = {
   BookRouter,

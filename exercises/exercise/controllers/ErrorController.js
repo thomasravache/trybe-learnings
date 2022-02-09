@@ -1,5 +1,6 @@
 const statusCodes = {
   'Book not found': 404,
+  'Preencher campos obrigatórios': 404,
 }
 
 module.exports = (err, req, res, next) => {
