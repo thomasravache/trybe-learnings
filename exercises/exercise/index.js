@@ -16,3 +16,4 @@ app.listen(PORT, () => {
   console.log(`Escutando na porta ${PORT}`);
 });
 
+module.exports = app;
