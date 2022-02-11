@@ -1,49 +1,18 @@
 module.exports = {
   up: async (queryInterface, _Sequelize) => {
-    return queryInterface.bulkInsert('Addresses',
+    return queryInterface.bulkInsert('Employees',
       [
-        {
-          city: 'Belo Horizonte',
-          street: 'Rua Florida',
-          number: 1080,
-          employee_id: 1,
-        },
-        {
-          city: 'São Paulo',
-          street: 'Avenida Paulista',
-          number: 1980,
-          employee_id: 2,
-        },
-        {
-          city: 'Fortaleza',
-          street: 'Rua das Enseadas',
-          number: 95,
-          employee_id: 3,
-        },
-        {
-          city: 'Belo Horizonte',
-          street: 'Rua Andaluzita',
-          number: 131,
-          employee_id: 4,
-        },
-        {
-          city: 'Belo Horizonte',
-          street: 'Rua Vicente Alvarenga',
-          number: 80,
-          employee_id: 1,
-        },
-        {
-          city: 'Curitiba',
-          street: 'Rua Fria',
-          number: 101,
-          employee_id: 5,
-        },
+        { first_name: 'Marcos', last_name: 'Zuck', age: 49 },
+        { first_name: 'Fred', last_name: 'Mercurio', age: 19 },
+        { first_name: 'Ayrton', last_name: 'Keno', age: 51 },
+        { first_name: 'Robin', last_name: 'Mathias', age: 63 },
+        { first_name: 'Antonio', last_name: 'Augusto', age: 18 },
       ],
       {},
     );
   },
 
   down: async (queryInterface, _Sequelize) => {
-    return queryInterface.bulkDelete('Addresses', null, {});
+    return queryInterface.bulkDelete('Employees', null, {});
   },
 };
