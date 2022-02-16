@@ -13,37 +13,62 @@ const fakeUsers = require('./mock/models/Users.json');
 const { expect } = require('chai');
 
 describe('Rota /api/users/:userId', () => {
-  describe('Quando um usuário é buscado com sucesso', () => {
-    let response;
+  describe('Quando o token é passado', () => {
+    let loginResponse;
 
     before(async () => {
       sinon.stub(User, 'findOne').resolves(fakeUsers[0]);
 
-      const loginResponse = await chai
+      loginResponse = await chai
         .request(server)
         .post('/api/login')
         .send({ username: fakeUsers[0].username, password: fakeUsers[0].password });
-
-      response = await chai
-        .request(server)
-        .get('/api/users/1')
-        .set('authorization', loginResponse.body.token);
     });
 
     after(async () => {
       User.findOne.restore();
     });
 
-    it('deve retornar status 200', () => {
-      expect(response).to.have.status(200);
+    describe('Quando um usuário é buscado com sucesso', () => {
+      let response;
+
+      before(async () => {
+        response = await chai
+        .request(server)
+        .get(`/api/users/${fakeUsers[0].id}`)
+        .set('authorization', loginResponse.body.token);
+      });
+
+      it('deve retornar status 200', () => {
+        expect(response).to.have.status(200);
+      });
+  
+      it('deve conter um objeto no body', () => {
+        expect(response.body).to.be.an('object');
+      });
+  
+      it('deve ter as propriedades "id", "username", "password"', () => {
+        expect(response.body).to.have.all.keys('id', 'username', 'password');
+      });
     });
 
-    it('deve conter um objeto no body', () => {
-      expect(response.body).to.be.an('object');
-    });
+    describe('Quando o usuário tenta acessar dados de outro usuario', () => {
+      let response;
 
-    it('deve ter as propriedades "id", "username", "password"', () => {
-      expect(response.body).to.have.all.keys('id', 'username', 'password');
+      before(async () => {
+        response = await chai
+        .request(server)
+        .get(`/api/users/${fakeUsers[1].id}`)
+        .set('authorization', loginResponse.body.token);
+      });
+
+      it('deve retornar status "401"', () => {
+        expect(response).to.have.status(401);
+      });
+
+      it('body deve ter o texto "Acesso negado"', () => {
+        expect(response.body.message).to.be.equals('Acesso negado');
+      });
     });
   });
 
@@ -51,15 +76,9 @@ describe('Rota /api/users/:userId', () => {
     let response;
 
     before(async () => {
-      // sinon.stub(User, 'findOne').resolves(null);
-
       response = await chai
         .request(server)
         .get('/api/users/1');
-    });
-
-    after(async () => {
-      // User.findOne.restore();
     });
 
     it('deve retornar status "400"', () => {
@@ -71,4 +90,7 @@ describe('Rota /api/users/:userId', () => {
       expect(response.body.error).to.be.equals('Token não encontrado ou informado');
     });
   });
+
+  describe('O usuário pode ver somente seus dados', () => {
+  })
 });
