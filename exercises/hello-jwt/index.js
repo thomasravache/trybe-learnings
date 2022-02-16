@@ -25,6 +25,7 @@ app.use(
   app.use(middlewares.auth);
   app.get('/ping', controllers.ping);
   app.get('/users/me', controllers.usersme);
+  app.get('/top-secret', controllers.topSecret);
   
   app.use(middlewares.error);
   
