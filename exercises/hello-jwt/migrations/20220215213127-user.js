@@ -17,6 +17,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      is_admin: {
+        defaultValue: false,
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+      }
     });
 
     return UsersTable;
