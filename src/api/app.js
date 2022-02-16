@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 const validateJWT = require('./auth/validateJWT');
 
-const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -20,4 +19,4 @@ apiRoutes.post('/api/login', routes.login);
 
 app.use(apiRoutes);
 
-app.listen(PORT, () => console.log(`Conectado na porta ${PORT}`));
+module.exports = app;
