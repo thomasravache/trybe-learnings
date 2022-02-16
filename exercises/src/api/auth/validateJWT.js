@@ -7,7 +7,7 @@ const segredo = 'seusecretdetoken';
 module.exports = async (req, res, next) => {
   const token = req.headers['authorization'];
 
-  if (!token) return res.status(401).json({ error: 'Token não encontrado' });
+  if (!token) return res.status(400).json({ error: 'Token não encontrado ou informado' });
 
   try {
     const decoded = jwt.verify(token, segredo);

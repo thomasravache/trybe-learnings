@@ -16,6 +16,7 @@ const mockCreate = (Instance, data) => {
 const User = {
   create: async (data) => mockCreate(Users, data),
   findAll: async () => Users,
+  findOne: async () => Users,
 };
 
 module.exports = {
