@@ -24,6 +24,7 @@ app.use(
   app.post('/login', controllers.login);
   app.use(middlewares.auth);
   app.get('/ping', controllers.ping);
+  app.get('/users/me', controllers.usersme);
   
   app.use(middlewares.error);
   
