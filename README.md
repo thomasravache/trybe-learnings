@@ -2,7 +2,7 @@
 
 [Fixing Exercise](https://github.com/thomasravache/primeiro-deploy-com-heroku)
 
-[Exercises](https://github.com/thomasravache/25-1-exercise-heroku-trybe)
+[Exercises Node.js](https://github.com/thomasravache/25-1-exercise-heroku-trybe)
 
-[Exercises](https://github.com/thomasravache/25-1-exercise-heroku-react)
+[Exercises React](https://github.com/thomasravache/25-1-exercise-heroku-react)
 
