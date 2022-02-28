@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.convert = void 0;
-const units = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
+const unidades = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
 const convert = (valor, unidadeBase, unidadeDeConversao) => {
     try {
-        if (!units.includes(unidadeBase) || !units.includes(unidadeDeConversao))
+        if (!unidades.includes(unidadeBase) || !unidades.includes(unidadeDeConversao))
             throw new Error('A unidade informada não existe');
-        const indexUnidadeDeConversao = units.indexOf(unidadeDeConversao);
-        const indexUnidadeBase = units.indexOf(unidadeBase);
+        const indexUnidadeDeConversao = unidades.indexOf(unidadeDeConversao);
+        const indexUnidadeBase = unidades.indexOf(unidadeBase);
         const expoente = indexUnidadeDeConversao - indexUnidadeBase;
         const resultado = valor * Math.pow(10, expoente);
         return `${resultado}${unidadeDeConversao}`;
@@ -17,4 +17,4 @@ const convert = (valor, unidadeBase, unidadeDeConversao) => {
     }
 };
 exports.convert = convert;
-console.log((0, exports.convert)(10000, 'm', 'km'));
+console.log((0, exports.convert)(1000, 'mg', 'g'));
