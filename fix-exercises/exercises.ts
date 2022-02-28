@@ -26,3 +26,15 @@ export function rectangle(base: number, height: number): number {
   return base * height;
 };
 
+
+export function diamond(majorDiagonal: number, minorDiagonal: number): number {
+  return (majorDiagonal * minorDiagonal) / 2;
+};
+
+export function trapeze(height: number, majorBase: number, minorBase: number): number {
+  return ((majorBase + minorBase) * height) / 2;
+};
+
+export function circle(radiusProduct: number): number {
+  return 3.14 * Math.pow(radiusProduct, 2);
+};
