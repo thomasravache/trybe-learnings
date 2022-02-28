@@ -1,4 +1,9 @@
+import readlineSync from 'readline-sync';
 const unidades: string[] = ['km²', 'hm²', 'dam²', 'm²', 'dm²', 'cm²', 'mm²'];
+
+const valor = readlineSync.questionFloat('Informe o valor a ser convertido\n');
+const unidadeBase = readlineSync.question('Informe a unidade base\n');
+const unidadeDeConversao = readlineSync.question('Informa a unidade de conversão\n');
 
 export const convert = (valor: number, unidadeBase: string, unidadeDeConversao: string): string => {
   try {
@@ -17,4 +22,4 @@ export const convert = (valor: number, unidadeBase: string, unidadeDeConversao: 
   }
 };
 
-console.log(convert(1000, 'm²', 'km²'));
+console.log(convert(valor, unidadeBase, unidadeDeConversao));
