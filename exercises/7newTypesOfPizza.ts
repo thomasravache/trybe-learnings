@@ -20,3 +20,33 @@ interface SweetPizza extends Pizza {
   flavor: SweetFlavors;
   slices: sweetSlices;
 };
+
+const commonPizza1: CommonPizza = {
+  flavor: 'Calabresa',
+  slices: 4
+};
+
+const commonPizza2: CommonPizza = {
+  flavor: 'Frango',
+  slices: 6,
+};
+
+const commonPizza3: CommonPizza = {
+  flavor: 'Pepperoni',
+  slices: 8,
+};
+
+const vegetarianPizza1: VegetarianPizza = {
+  flavor: 'Cogumelo',
+  slices: 4,
+}
+
+const vegetarianPizza2: VegetarianPizza = {
+  flavor: 'Marguerita',
+  slices: 6,
+};
+
+const sweetPizza1: SweetPizza = {
+  flavor: 'Goiabada com Queijo',
+  slices: 4,
+};
