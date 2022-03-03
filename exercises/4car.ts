@@ -18,39 +18,49 @@ class Car {
     this._doors = doors;
   };
 
-  honk(): string {
-    return 'BIIIII';
+  honk(): void {
+    console.log('BIIIII');
   };
 
-  openTheDoor(numberOfDoor: number): string {
-    return `Abrindo a porta ${numberOfDoor}`;
+  openTheDoor(numberOfDoor: number): void {
+    console.log(`Abrindo a porta ${numberOfDoor}`);
   };
 
-  closeTheDoor(numberOfDoor: number): string {
-    return `Fechando a porta ${numberOfDoor}`;
+  closeTheDoor(numberOfDoor: number): void {
+    console.log(`Fechando a porta ${numberOfDoor}`);
   };
 
-  turnOn(): string {
-    return 'Ligando o carro...';
+  turnOn(): void {
+    console.log('Ligando o carro...');
   }
 
-  turnOff(): string {
-    return 'Desligando o carro...';
+  turnOff(): void {
+    console.log('Desligando o carro...');
   };
 
-  speedUp(): string {
-    return 'Acelerando o carro...';
+  speedUp(): void {
+    console.log('Acelerando o carro...');
   };
 
-  speedDown(): string {
-    return 'Reduzindo velocidade...';
+  speedDown(): void {
+    console.log('Reduzindo velocidade...');
   };
 
-  stop(): string {
-    return 'Parando o carro.';
+  stop(): void {
+    console.log('Parando o carro.');
   };
 
-  turn(direction: string): string {
-    return `Virando o carro para à ${direction}`;
+  turn(direction: string): void {
+    console.log(`Virando o carro para à ${direction}`);
   };
 };
+
+const myCar = new Car('Volkswagen Gol', Colors.prata, 4);
+
+myCar.turnOn();
+myCar.speedUp();
+myCar.turn('esquerda');
+myCar.speedUp();
+myCar.turn('direita');
+myCar.speedDown();
+myCar.stop();
