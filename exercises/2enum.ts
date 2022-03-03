@@ -1,10 +1,10 @@
-enum Season {
+export enum Seasons {
   Autumn = 'Outono',
   Winter = 'Inverno',
   Spring = 'Primavera',
   Summer = 'Verão',
 }
 
-const season: Season = Season.Autumn;
+const season: Seasons = Seasons.Autumn;
 
 console.log(season);
