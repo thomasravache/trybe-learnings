@@ -1,4 +1,4 @@
-interface Car {
+export interface Car {
   model: string;
   releaseYear: number;
   automaker: string;
