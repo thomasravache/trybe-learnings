@@ -1,17 +1,21 @@
-type slice = 4 | 6 | 8;
+export type slice = 4 | 6 | 8;
 
-interface Pizza {
-  _flavor: string;
-  _slices: slice;
+export interface Pizza {
+  flavor: string;
+  slices: slice;
 };
 
-class Pizza {
-  constructor(flavor: string, slices: slice) {
-    this._flavor = flavor;
-    this._slices = slices;
-  }
+const pizza1: Pizza = {
+  flavor: 'Calabresa',
+  slices: 8,
+}
+
+const pizza2: Pizza = {
+  flavor: 'Marguerita',
+  slices: 6,
 };
 
-const pizza1 = new Pizza('Calabresa', 8);
-const pizza2 = new Pizza('Marguerita', 6);
-const pizza3 = new Pizza('Nutella', 4);
+const pizza3: Pizza = {
+  flavor: 'Nutella',
+  slices: 4,
+};
