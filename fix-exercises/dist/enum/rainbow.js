@@ -13,4 +13,3 @@ for (let i = 0; i <= 6; i += 1) {
     console.log(rainbow[i]);
 }
 ;
-console.log((Object.keys(rainbow).length) / 2);
