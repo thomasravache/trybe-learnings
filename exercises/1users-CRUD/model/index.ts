@@ -1,7 +1,9 @@
 import write from './write';
 import read from './read';
 
-export {
+const UserModel= {
   write,
   read,
-};
+}
+
+export default UserModel;
