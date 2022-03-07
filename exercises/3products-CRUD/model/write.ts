@@ -1,8 +1,8 @@
 import fs from 'fs/promises';
-import BlogPost from '../types/interfaces/BlogPost';
+import Product from '../types/interfaces/Product';
 
-const write = async(data: BlogPost[]): Promise<void> => {
-  await fs.writeFile('./blogPost.json', JSON.stringify(data));
+const write = async(data: Product[]): Promise<void> => {
+  await fs.writeFile('./products.json', JSON.stringify(data));
 };
 
 export default write;

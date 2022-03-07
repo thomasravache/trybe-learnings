@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const write_1 = __importDefault(require("./write"));
 const read_1 = __importDefault(require("./read"));
-const BlogPostModel = {
+const ProductModel = {
     write: write_1.default,
     read: read_1.default,
 };
-exports.default = BlogPostModel;
+exports.default = ProductModel;

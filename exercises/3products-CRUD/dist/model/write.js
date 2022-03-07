@@ -14,6 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const promises_1 = __importDefault(require("fs/promises"));
 const write = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    yield promises_1.default.writeFile('./blogPost.json', JSON.stringify(data));
+    yield promises_1.default.writeFile('./products.json', JSON.stringify(data));
 });
 exports.default = write;

@@ -1,5 +1,5 @@
 import express, { Application } from 'express';
-import blogPostRoutes from './controller/BlogPostController';
+import productRoutes from './controller/ProductController';
 import { domainError, inputError, serverError } from './errorMiddlewares'
 import bodyParser from 'body-parser';
 
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-app.use('/post', blogPostRoutes);
+app.use('/product', productRoutes);
 
 /* Error Handlers */
 app.use(inputError);

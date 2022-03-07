@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const promises_1 = __importDefault(require("fs/promises"));
 const read = () => __awaiter(void 0, void 0, void 0, function* () {
-    const data = yield promises_1.default.readFile('./blogPost.json', 'utf-8');
+    const data = yield promises_1.default.readFile('./products.json', 'utf-8');
     const users = JSON.parse(data);
     return users;
 });

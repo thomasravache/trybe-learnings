@@ -1,9 +1,9 @@
 import write from './write';
 import read from './read';
 
-const BlogPostModel = {
+const ProductModel = {
   write,
   read,
 }
 
-export default BlogPostModel;
+export default ProductModel;
