@@ -1,10 +1,26 @@
 import UserModel from '../model';
 import User from '../types/interfaces/User';
+import StatusCodes from '../types/enums/statusCodes';
 
 type createUserParams = {
   nome: string;
   email: string;
   senha: string;
+};
+
+type domainError = {
+  domain: boolean;
+  message: string;
+  code: StatusCodes;
+}
+
+const generatedError = (message: string, statusCode: StatusCodes): domainError => {
+  const error: any = new Error();
+  error.domain = true;
+  error.message = message;
+  error.code = statusCode;
+
+  return error;
 };
 
 const getAll = async (): Promise<User[]> => UserModel.read();
@@ -14,7 +30,7 @@ const getById = async (id: number): Promise<User> => {
 
   const user: User | undefined = users.find((user) => user.id === id);
 
-  if (!user) throw new Error('Usuário não encontrado');
+  if (!user) throw generatedError('Usuário não encontrado', StatusCodes.NOT_FOUND);
 
   return user;
 };
@@ -24,7 +40,7 @@ const create = async ({ nome, email, senha }: createUserParams ): Promise<User> 
 
   const emailAlreadyExists = users.some((user: User) => user.email === email);
 
-  if (emailAlreadyExists) throw new Error('Usuário já cadastrado na plataforma');
+  if (emailAlreadyExists) throw generatedError('Usuário já cadastrado na plataforma', StatusCodes.CONFLIT);
 
   const maxId = users
     .map((user: User) => user.id)
@@ -47,7 +63,7 @@ const editUser = async (editedUser: User): Promise<User> => {
 
   const userIndex = users.findIndex((user: User) => user.id === editedUser.id);
 
-  if (userIndex === -1) throw new Error('Usuário não encontrado');
+  if (userIndex === -1) throw generatedError('Usuário não encontrado', StatusCodes.NOT_FOUND);
 
   const newUsers = users.splice(userIndex, 1, editedUser);
 
@@ -61,7 +77,7 @@ const removeUser = async (id: number): Promise<void> => {
 
   const userIndex = users.findIndex((user: User) => user.id === id);
 
-  if (userIndex === -1) throw new Error('Usuário não encontrado');
+  if (userIndex === -1) throw generatedError('Usuário não encontrado', StatusCodes.NOT_FOUND);
 
   const newUsers = users.splice(userIndex, 1);
 
