@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nome": "Gilda",
+    "email": "Annaliese@gmail.com",
+    "senha": "Laurene123"
+  },
+  {
+    "id": 2,
+    "nome": "Eve",
+    "email": "Celestyna@gmail.com",
+    "senha": "Edee123"
+  },
+  {
+    "id": 3,
+    "nome": "Nyssa",
+    "email": "Dorene@gmail.com",
+    "senha": "Thalia123"
+  },
+  {
+    "id": 4,
+    "nome": "Ileana",
+    "email": "Rochette@gmail.com",
+    "senha": "Gwenneth123"
+  },
+  {
+    "id": 5,
+    "nome": "Luci",
+    "email": "Alyda@gmail.com",
+    "senha": "Alyda123"
+  },
+  {
+    "id": 6,
+    "nome": "Thomas",
+    "email": "thominhas3@gmail.com",
+    "senha": "thomas1234"
+  }
+]
