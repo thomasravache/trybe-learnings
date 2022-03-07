@@ -1,5 +1,5 @@
 import express, { Application } from 'express';
-import productRoutes from './controller/ProductController';
+import restaurantRoutes from './controller/RestaurantController';
 import { domainError, inputError, serverError } from './errorMiddlewares'
 import bodyParser from 'body-parser';
 
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-app.use('/product', productRoutes);
+app.use('/restaurant', restaurantRoutes);
 
 /* Error Handlers */
 app.use(inputError);

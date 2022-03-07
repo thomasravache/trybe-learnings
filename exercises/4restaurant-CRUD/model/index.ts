@@ -1,9 +1,9 @@
 import write from './write';
 import read from './read';
 
-const ProductModel = {
+const RestaurantModel = {
   write,
   read,
 }
 
-export default ProductModel;
+export default RestaurantModel;

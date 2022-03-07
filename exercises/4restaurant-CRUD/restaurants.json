@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nome": "Bob's",
+    "tipoComida": "Fast Food",
+    "abertura": 6,
+    "fechamento": 22
+  },
+  {
+    "id": 2,
+    "nome": "Spoleto",
+    "tipoComida": "Italiana",
+    "abertura": 10,
+    "fechamento": 15
+  }
+]
