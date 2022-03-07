@@ -6,6 +6,12 @@ import userSchema from './schemas/userSchema';
 
 const userRoutes = Router();
 
+const validateUser = (body: userMainInfo): void => {
+  const { error } = userSchema.validate(body);
+
+  if (error) throw error;
+};
+
 userRoutes.get('/', async (_req: Request, res: Response, next: NextFunction) => {
   const users = await UserService.getAll();
 
@@ -27,9 +33,9 @@ userRoutes.post('/', async (req: Request, res: Response, next: NextFunction) => 
   const newUser: userMainInfo = req.body;
 
   try {
-    userSchema.validate(newUser);
+    validateUser(newUser);
 
-    const createdUser = UserService.create(newUser);
+    const createdUser = await UserService.create(newUser);
 
     return res.status(StatusCodes.CREATED).json(createdUser);
   } catch (e) {
@@ -42,7 +48,7 @@ userRoutes.put('/:id', async (req: Request, res: Response, next: NextFunction) =
   const userNewInfo: userMainInfo = req.body;
 
   try {
-    userSchema.validate(userNewInfo);
+    validateUser(userNewInfo);
     const editedUser = await UserService.editUser({ id: parseInt(id, 10), ...userNewInfo });
 
     return res.status(StatusCodes.OK).json(editedUser);

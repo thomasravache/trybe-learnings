@@ -52,12 +52,14 @@ const editUser = async (editedUser: User): Promise<User> => {
   const users = await UserModel.read();
 
   const userIndex = users.findIndex((user: User) => user.id === editedUser.id);
-
   if (userIndex === -1) throw generatedError('Usuário não encontrado', StatusCodes.NOT_FOUND);
 
-  const newUsers = users.splice(userIndex, 1, editedUser);
+  const emailAlreadyExists = users.some((user: User) => user.email === editedUser.email);
+  if (emailAlreadyExists) throw generatedError('Usuário com e-mail já cadastrado na plataforma', StatusCodes.CONFLIT);
 
-  await UserModel.write(newUsers);
+  users.splice(userIndex, 1, editedUser);
+
+  await UserModel.write(users);
 
   return editedUser;
 };
