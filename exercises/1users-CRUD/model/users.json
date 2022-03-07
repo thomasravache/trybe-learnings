@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "id": "1",
+    "nome": "Gilda",
+    "email": "Annaliese@gmail.com",
+    "senha": "Laurene123"
+  },
+  {
+    "id": "2",
+    "nome": "Eve",
+    "email": "Celestyna@gmail.com",
+    "senha": "Edee123"
+  },
+  {
+    "id": "3",
+    "nome": "Nyssa",
+    "email": "Dorene@gmail.com",
+    "senha": "Thalia123"
+  },
+  {
+    "id": "4",
+    "nome": "Ileana",
+    "email": "Rochette@gmail.com",
+    "senha": "Gwenneth123"
+  },
+  {
+    "id": "5",
+    "nome": "Luci",
+    "email": "Alyda@gmail.com",
+    "senha": "Alyda123"
+  },
+  {
+    "id": "6",
+    "nome": "Marti",
+    "email": "Sean@gmail.com",
+    "senha": "Candi123"
+  },
+  {
+    "id": "7",
+    "nome": "Jenda",
+    "email": "Roberta@gmail.com",
+    "senha": "Fayre123"
+  },
+  {
+    "id": "8",
+    "nome": "Raquela",
+    "email": "Gilligan@gmail.com",
+    "senha": "Reeba123"
+  },
+  {
+    "id": "9",
+    "nome": "Christian",
+    "email": "Joy@gmail.com",
+    "senha": "Frieda123"
+  }
+]

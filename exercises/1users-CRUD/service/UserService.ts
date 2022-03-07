@@ -1,7 +1,7 @@
 import UserModel from '../model';
 import User from '../types/interfaces/User';
 import StatusCodes from '../types/enums/statusCodes';
-import createUserParams from '../types/types/createUserParams';
+import userMainInfo from '../types/types/userMainInfo';
 import domainError from '../types/types/domainError';
 
 const generatedError = (message: string, statusCode: StatusCodes): domainError => {
@@ -25,7 +25,7 @@ const getById = async (id: number): Promise<User> => {
   return user;
 };
 
-const create = async ({ nome, email, senha }: createUserParams ): Promise<User> => {
+const create = async ({ nome, email, senha }: userMainInfo ): Promise<User> => {
   const users = await UserModel.read();
 
   const emailAlreadyExists = users.some((user: User) => user.email === email);
