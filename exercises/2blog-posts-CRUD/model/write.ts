@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
-import User from '../types/interfaces/User';
+import BlogPost from '../types/interfaces/BlogPost';
 
-const write = async(data: User[]): Promise<void> => {
+const write = async(data: BlogPost[]): Promise<void> => {
   await fs.writeFile('./blogPost.json', JSON.stringify(data));
 };
 

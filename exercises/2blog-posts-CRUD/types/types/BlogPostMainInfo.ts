@@ -1,7 +1,8 @@
 type blogPostMainInfo = {
-  nome: string;
-  email: string;
-  senha: string;
+  titulo: string;
+  autor: string;
+  categoria: string;
+  criacao: Date;
 };
 
 export default blogPostMainInfo;

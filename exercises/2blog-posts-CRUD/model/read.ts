@@ -1,10 +1,10 @@
 import fs from 'fs/promises';
-import User from '../types/interfaces/User';
+import BlogPost from '../types/interfaces/BlogPost';
 
-const read = async (): Promise<User[]> => {
+const read = async (): Promise<BlogPost[]> => {
   const data = await fs.readFile('./blogPost.json', 'utf-8');
 
-  const users: User[] = JSON.parse(data);
+  const users: BlogPost[] = JSON.parse(data);
 
   return users;
 };
