@@ -1,7 +1,7 @@
 import write from './write';
 import read from './read';
 
-const UserModel= {
+const UserModel = {
   write,
   read,
 }

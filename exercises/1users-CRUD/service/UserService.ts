@@ -1,18 +1,8 @@
 import UserModel from '../model';
 import User from '../types/interfaces/User';
 import StatusCodes from '../types/enums/statusCodes';
-
-type createUserParams = {
-  nome: string;
-  email: string;
-  senha: string;
-};
-
-type domainError = {
-  domain: boolean;
-  message: string;
-  code: StatusCodes;
-}
+import createUserParams from '../types/types/createUserParams';
+import domainError from '../types/types/domainError';
 
 const generatedError = (message: string, statusCode: StatusCodes): domainError => {
   const error: any = new Error();
