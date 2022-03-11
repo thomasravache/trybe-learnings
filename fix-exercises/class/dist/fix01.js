@@ -8,10 +8,12 @@
 // }
 class Tv {
     constructor(brand, size, resolution, connections) {
+        this._connectedTo = ''; // ou private _connectedTo!: string;
         this._brand = brand;
         this._size = size;
         this._resolution = resolution;
         this._connections = connections;
+        // this._connectedTo = ''
     }
     get connectedTo() {
         return this._connectedTo;

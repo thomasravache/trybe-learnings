@@ -45,7 +45,8 @@ class MailList {
         return this._mailList.filter((mail) => mail.to === mailTo);
     }
     getBySubject(searchString) {
-        return this._mailList.filter((mail) => mail.subject.includes(searchString));
+        return this._mailList.filter((mail) => mail.subject.indexOf(searchString) !== -1 // ou (mail) => mail.subject.includes(searchString)
+        );
     }
     addEmail(newMail) {
         this._mailList.push(newMail);
