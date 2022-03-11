@@ -1,5 +1,5 @@
 "use strict";
-class Person {
+class Personagem {
     constructor(n, h, w) {
         console.log(`Criando pessoa de nome: ${n}`);
         this.name = n;
@@ -10,8 +10,8 @@ class Person {
         console.log(`${this.name}: zzzzz`);
     }
 }
-const person1 = new Person('Thomas', 180, 60);
-const person2 = new Person('José', 180, 57);
+const person1 = new Personagem('Thomas', 180, 60);
+const person2 = new Personagem('José', 180, 57);
 console.log(person1.name, person1.height, person1.weight);
 console.log(person2.name, person2.height, person2.weight);
 person1.sleep();
