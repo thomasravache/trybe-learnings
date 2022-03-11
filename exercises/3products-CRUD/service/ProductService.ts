@@ -9,7 +9,7 @@ const getAll = async (): Promise<Product[]> => ProductModel.read();
 const getById = async (id: number): Promise<Product> => {
   const products = await ProductModel.read();
 
-  const product: Product | undefined = products.find((blogPost) => blogPost.id === id);
+  const product: Product | undefined = products.find((product) => product.id === id);
 
   if (!product) throw generatedError('Produto não encontrado', StatusCodes.NOT_FOUND);
 

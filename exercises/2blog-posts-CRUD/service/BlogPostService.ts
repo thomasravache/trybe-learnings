@@ -65,9 +65,9 @@ const removePost = async (id: number): Promise<void> => {
 
   if (blogPostIndex === -1) throw generatedError('Post não encontrado', StatusCodes.NOT_FOUND);
 
-  const newBlogPosts = blogPosts.splice(blogPostIndex, 1);
+  blogPosts.splice(blogPostIndex, 1);
 
-  await BlogPostModel.write(newBlogPosts);
+  await BlogPostModel.write(blogPosts);
 };
 
 const search = async (queryParam: any): Promise<BlogPost[]> => {
