@@ -11,13 +11,14 @@ class Tv {
   private _size: number;
   private _resolution: string;
   private _connections: string[];
-  private _connectedTo!: string;
+  private _connectedTo: string = ''; // ou private _connectedTo!: string;
 
   constructor(brand: string, size: number, resolution: string, connections: string[]) {
     this._brand = brand;
     this._size = size;
     this._resolution = resolution;
     this._connections = connections;
+    // this._connectedTo = ''
   }
 
   get connectedTo(): string {
@@ -33,7 +34,7 @@ class Tv {
     console.log('Connection unavailable');
   }
 
-  turnOn():void {
+  turnOn(): void {
     console.log(`${this._brand} ${this._size} ${this._resolution} ${this._connections}`);
   }
 }
