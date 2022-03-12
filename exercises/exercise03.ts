@@ -52,11 +52,23 @@ class Order {
   }
 
   public getTotal(): number {
-    const total = this.sumPrices();
+    const total: number = this.sumPrices();
     if (!this._discount) {
       return total;
     }
 
     return total - (total * this._discount);
+  }
+}
+
+class Data {
+  private _day: number;
+  private _month: number;
+  private _year: number;
+
+  constructor(day: number, month: number, year: number) {
+    this._day = day;
+    this._month = month;
+    this._year = year;
   }
 }
