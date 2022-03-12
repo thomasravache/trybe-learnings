@@ -76,6 +76,8 @@ enum Month {
   Dezembro,
 }
 
+type FormatParam = 'dd/mm/aaaa' | 'aaaa-mm-dd' | 'dd de M de aa' | 'dd, M de aaaa';
+
 class Data {
   private _day: number;
   private _month: number;
@@ -114,7 +116,7 @@ class Data {
     return 1;
   }
 
-  public format(format: string): string {
+  public format(format: FormatParam): string {
     const { _day, _month, _year } = this;
     const yearString = _year.toString();
     const dayString = _day < 10 ? `0${_day}` : _day;
