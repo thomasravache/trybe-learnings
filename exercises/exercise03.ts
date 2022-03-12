@@ -20,19 +20,23 @@ class OrderItem {
     this._item = item;
     this._price = price;
   }
+
+  get price(): number {
+    return this._price;
+  }
 }
 
 class Order {
   private _customer: Customer;
   private _orderItems: OrderItem[];
   private _formOfPayment: Payment;
-  private _discount: number | null;
+  private _discount: number | undefined;
 
   constructor(
     customer: Customer,
     orderItems: OrderItem[],
     formOfPayment: Payment,
-    discount: number | null,
+    discount: number | undefined,
   ) {
     this._customer = customer;
     this._orderItems = orderItems;
@@ -40,4 +44,19 @@ class Order {
     this._discount = discount;
   }
 
+  private sumPrices(): number {
+    const sumOfPriceItems = this._orderItems
+      .reduce<number>((acc, curr) => acc + curr.price, 0);
+
+    return sumOfPriceItems;
+  }
+
+  public getTotal(): number {
+    const total = this.sumPrices();
+    if (!this._discount) {
+      return total;
+    }
+
+    return total - (total * this._discount);
+  }
 }
