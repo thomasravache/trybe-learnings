@@ -1,7 +1,7 @@
 type ExamNotes = [number, number, number, number];
 type WorkNotes = [number, number];
 
-class Student {
+export class Student {
   private _name: string;
   private _registration: string;
   private _examNotes: ExamNotes;
