@@ -77,8 +77,8 @@ class SalesContract implements Contract {
   describe() {
     console.log('-----------');
     console.log(`Contrato: ${this.subject}`);
-    this.clauses.forEach((clause, index) => { console.log(`Cláusula ${index + 1}: ${clause}`) });
-    this.signatories.forEach((signatory) => { console.log(`Assinado por: ${signatory.name}`) });
+    this._clauses.forEach((clause, index) => { console.log(`Cláusula ${index + 1}: ${clause}`) });
+    this._signatories.forEach((signatory) => { console.log(`Assinado por: ${signatory.name}`) });
     console.log('-----------\n');
   }
 }
