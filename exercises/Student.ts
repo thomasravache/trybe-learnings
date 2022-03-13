@@ -1,13 +1,6 @@
 type ExamNotes = [number, number, number, number];
 type WorkNotes = [number, number];
 
-// interface Student {
-//   _name: string;
-//   _registration: string;
-//   _examNotes: ExamNotes,
-//   _workNotes: WorkNotes,
-// }
-
 class Student {
   private _name: string;
   private _registration: string;
