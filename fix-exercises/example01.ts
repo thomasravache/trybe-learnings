@@ -1,14 +1,11 @@
-class Animal {
+abstract class Animal {
   constructor(public name: string) {  }
 
-  public move(): void {
-    console.log(`${this.name} está se movendo`);
-  }
+  abstract move(): void
 }
 
 class Bird extends Animal {
   public move() {
-    super.move();
     console.log(`${this.name} está voando`);
   }
 }
@@ -19,11 +16,17 @@ class Mammal extends Animal {
   }
 }
 
+class Fish extends Animal {
+  public move() {
+    console.log(`${this.name} está nadando`)
+  }
+}
+
 const myMove = (animal: Animal) => {
   animal.move();
 }
 
-const animalGeneric = new Animal('Tubarão');
+const animalGeneric = new Fish('Tubarão');
 const animalBird = new Bird('Papagaio');
 const animalMammal = new Mammal('Tatu');
 
