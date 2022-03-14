@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Student = void 0;
+exports.Student = exports.Month = void 0;
 const Person_1 = require("./Person");
 const crypto_1 = __importDefault(require("crypto"));
 var Month;
@@ -20,7 +20,7 @@ var Month;
     Month[Month["outubro"] = 9] = "outubro";
     Month[Month["novembro"] = 10] = "novembro";
     Month[Month["dezembro"] = 11] = "dezembro";
-})(Month || (Month = {}));
+})(Month = exports.Month || (exports.Month = {}));
 class Student extends Person_1.Person {
     constructor(name, birthDate) {
         super(name, birthDate);

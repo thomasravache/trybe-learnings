@@ -1,7 +1,7 @@
 import { Person } from './Person';
 import crypto from 'crypto';
 
-enum Month {
+export enum Month {
   janeiro,
   fevereiro,
   março,

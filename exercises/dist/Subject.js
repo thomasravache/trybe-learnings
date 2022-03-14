@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.subject3 = exports.subject2 = exports.subject1 = exports.Subject = void 0;
 class Subject {
     constructor(name) {
         if (name.length < 3)
@@ -14,7 +16,10 @@ class Subject {
         this._name = newName;
     }
 }
-const subject1 = new Subject('Matemática');
-const subject2 = new Subject('História');
-const subject3 = new Subject('Filosofia');
-console.log(subject1.name);
+exports.Subject = Subject;
+exports.subject1 = new Subject('Matemática');
+exports.subject2 = new Subject('História');
+exports.subject3 = new Subject('Filosofia');
+const randomString = Math.random().toFixed(16);
+console.log(parseInt(randomString.slice(2), 10));
+console.log(exports.subject1.name);

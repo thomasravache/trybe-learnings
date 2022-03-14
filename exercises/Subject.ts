@@ -1,4 +1,4 @@
-class Subject {
+export class Subject {
   private _name: string;
 
   constructor(name: string) { 
@@ -17,8 +17,10 @@ class Subject {
   }
 }
 
-const subject1 = new Subject('Matemática');
-const subject2 = new Subject('História');
-const subject3 = new Subject('Filosofia');
+export const subject1 = new Subject('Matemática');
+export const subject2 = new Subject('História');
+export const subject3 = new Subject('Filosofia');
+const randomString = Math.random().toFixed(16);
+console.log(parseInt(randomString.slice(2), 10));
 
 console.log(subject1.name);
