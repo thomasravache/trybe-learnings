@@ -8,6 +8,7 @@ class Animal {
 
 class Bird extends Animal {
   public move() {
+    super.move();
     console.log(`${this.name} está voando`);
   }
 }
