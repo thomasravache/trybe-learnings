@@ -43,4 +43,8 @@ class LocalDbModel implements IModel {
   }
 }
 
+class CharacterService {
+  constructor(public model: LocalDbModel) {  }
+}
+
 const db: DbCharacter[] = [];
