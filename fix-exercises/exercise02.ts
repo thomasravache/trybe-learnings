@@ -77,4 +77,46 @@ class CharacterService implements IModel {
   }
 }
 
+class MockedDbModel extends LocalDbModel implements IModel {
+  constructor(public mockedDb: DbCharacter[]) {
+    super(mockedDb);
+  }
+}
+
 const db: DbCharacter[] = [];
+const mockedDb: DbCharacter[] = [
+  {
+    id: 1,
+    name: 'Super Shock',
+    specialMove: 'Choquinho',
+  },
+  {
+    id: 2,
+    name: 'Capitão Cueca',
+    specialMove: 'Super cuecão',
+  }
+];
+
+const mockedModel = new MockedDbModel(mockedDb);
+const characterModel = new LocalDbModel(db);
+
+const characterServiceWithMockDb = new CharacterService(mockedModel);
+const characterService = new CharacterService(characterModel);
+
+characterService.create({ name: 'Ciclope', specialMove: 'Laser' });
+characterService.create({ name: 'Sr. Incrível', specialMove: 'Super socão' });
+console.log(characterService.read());
+
+characterService.remove(2);
+console.log(characterService.read());
+
+characterService.update({ id: 1, name: 'Gelado', specialMove: 'Congelar' });
+console.log(characterService.read());
+
+try {
+  characterService.remove(2);
+
+  console.log(characterService.read());
+} catch (e: any) {
+  console.log(e.message);
+}

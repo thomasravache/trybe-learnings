@@ -1,9 +1,12 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Character = void 0;
 class Character {
     constructor(name) {
         this.name = name;
     }
 }
+exports.Character = Character;
 class MeleeCharacter extends Character {
     talk() {
         console.log(`${this.name} diz: Olá, Sr.`);
