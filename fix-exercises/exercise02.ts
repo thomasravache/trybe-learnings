@@ -28,9 +28,7 @@ class LocalDbModel implements IModel {
   
   public update(character: DbCharacter): DbCharacter {
     const characterIndex = this.db.findIndex((char) => char.id === character.id);
-    
-    if (characterIndex === -1) throw new Error('character not found');
-    
+
     this.db.splice(characterIndex, 1, character);
     
     return character;
@@ -41,10 +39,42 @@ class LocalDbModel implements IModel {
     
     this.db.splice(characterIndex, 1);
   }
+
+  public findById(id: number): DbCharacter | undefined {
+    const findedCharacter = this.db.find((character) => character.id === id);
+
+    return findedCharacter;
+  }
 }
 
-class CharacterService {
+class CharacterService implements IModel {
   constructor(public model: LocalDbModel) {  }
+
+  public create(character: Character): void {
+    this.model.create(character);
+  }
+
+  public read(): DbCharacter[] {
+    return this.model.read();
+  }
+
+  public update(character: DbCharacter): DbCharacter {
+    const findedCharacter = this.model.findById(character.id);
+
+    if (!findedCharacter) throw new Error('character not found');
+
+    this.model.update(character);
+    
+    return character;
+  }
+
+  public remove(id: number): void {
+    const findedCharacter = this.model.findById(id);
+
+    if (!findedCharacter) throw new Error('character not found');
+
+    this.model.remove(id);
+  }
 }
 
 const db: DbCharacter[] = [];
