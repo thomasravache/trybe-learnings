@@ -1,4 +1,4 @@
-import { Enrollable } from 'interfaces/Enrollable';
+import { Enrollable } from 'school/interfaces/Enrollable';
 import { IEmployee } from './interfaces/Employee';
 import { Person } from './Person';
 

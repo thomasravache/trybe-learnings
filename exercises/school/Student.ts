@@ -1,5 +1,5 @@
 import { Person } from './Person';
-import { Enrollable } from 'interfaces/Enrollable';
+import { Enrollable } from 'school/interfaces/Enrollable';
 import { Months } from './enums/Months';
 import { EvaluationResult } from './EvaluationResult';
 import { Exam } from './Exam';

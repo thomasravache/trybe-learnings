@@ -1,4 +1,4 @@
-export abstract class Person {
+export class Person {
   private _name: string;
   private _birthDate: Date;
 
