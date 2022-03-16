@@ -1,5 +1,5 @@
 import { Person } from './Person';
-import crypto from 'crypto';
+import { Enrollable } from 'interfaces/Enrollable';
 
 export enum Month {
   janeiro,
@@ -16,7 +16,7 @@ export enum Month {
   dezembro,
 }
 
-export class Student extends Person {
+export class Student extends Person implements Enrollable {
   private _enrollment: string;
   private _examGrades: number[];
   private _workGrades: number[];
@@ -26,9 +26,17 @@ export class Student extends Person {
     birthDate: Date,
   ) {
     super(name, birthDate);
-    this._enrollment = crypto.randomBytes(9).toString('hex');
+    this._enrollment = this.generateEnrollment();
     this._examGrades = [];
     this._workGrades = [];
+  }
+  
+  public generateEnrollment(): string {
+    return this._enrollment = Math.random().toFixed(16).slice(2);
+  }
+
+  public get enrollment(): string {
+    return this._enrollment;
   }
 
   public setExamGrades(examGrades: number[]): void {
@@ -39,14 +47,6 @@ export class Student extends Person {
   public setWorkGrades(workGrades: number[]): void {
     if (this._workGrades.length > 2) throw new Error('Limite máximo para notas de trabalho');
     this._workGrades = workGrades;
-  }
-
-  public get enrollment(): string {
-    return this._enrollment;
-  }
-
-  public generateEnrollment(): string {
-    return this._enrollment = crypto.randomBytes(9).toString('hex');
   }
 
   public sumNotes(): number {

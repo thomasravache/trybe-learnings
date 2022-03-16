@@ -1,11 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Student = exports.Month = void 0;
 const Person_1 = require("./Person");
-const crypto_1 = __importDefault(require("crypto"));
 var Month;
 (function (Month) {
     Month[Month["janeiro"] = 0] = "janeiro";
@@ -24,9 +20,15 @@ var Month;
 class Student extends Person_1.Person {
     constructor(name, birthDate) {
         super(name, birthDate);
-        this._enrollment = crypto_1.default.randomBytes(9).toString('hex');
+        this._enrollment = this.generateEnrollment();
         this._examGrades = [];
         this._workGrades = [];
+    }
+    generateEnrollment() {
+        return this._enrollment = Math.random().toFixed(16).slice(2);
+    }
+    get enrollment() {
+        return this._enrollment;
     }
     setExamGrades(examGrades) {
         if (this._examGrades.length > 4)
@@ -37,12 +39,6 @@ class Student extends Person_1.Person {
         if (this._workGrades.length > 2)
             throw new Error('Limite máximo para notas de trabalho');
         this._workGrades = workGrades;
-    }
-    get enrollment() {
-        return this._enrollment;
-    }
-    generateEnrollment() {
-        return this._enrollment = crypto_1.default.randomBytes(9).toString('hex');
     }
     sumNotes() {
         if (this._examGrades.length > 4)
