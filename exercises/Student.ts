@@ -1,20 +1,6 @@
 import { Person } from './Person';
 import { Enrollable } from 'interfaces/Enrollable';
-
-export enum Month {
-  janeiro,
-  fevereiro,
-  março,
-  abril,
-  maio,
-  junho,
-  julho,
-  agosto,
-  setembro,
-  outubro,
-  novembro,
-  dezembro,
-}
+import { Months } from './enums/Months';
 
 export class Student extends Person implements Enrollable {
   private _enrollment: string;
@@ -71,11 +57,11 @@ export class Student extends Person implements Enrollable {
 }
 
 // const date1 = new Date(1998, Month.julho, 27)
-const student1 = new Student('Thomas Ravache', new Date(1998, Month.julho, 27));
-const student2 = new Student('Maluco beleza', new Date(1997, Month.abril, 5));
-const student3 = new Student('Chapa quente', new Date(1995, Month.dezembro, 20));
-const student4 = new Student('Boris Johnson', new Date(1990, Month.agosto, 2));
-const student5 = new Student('Mano Brown', new Date(2000, Month.janeiro, 8));
+const student1 = new Student('Thomas Ravache', new Date(1998, Months.julho, 27));
+const student2 = new Student('Maluco beleza', new Date(1997, Months.abril, 5));
+const student3 = new Student('Chapa quente', new Date(1995, Months.dezembro, 20));
+const student4 = new Student('Boris Johnson', new Date(1990, Months.agosto, 2));
+const student5 = new Student('Mano Brown', new Date(2000, Months.janeiro, 8));
 
 student1.setExamGrades([10, 10, 10, 8]);
 student1.setWorkGrades([8, 10]);

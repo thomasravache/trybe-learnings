@@ -1,9 +1,9 @@
 // import { Person } from './Person';
 import { Employee } from './Employee';
 import { Subject, subject1 } from './Subject';
-import { Month } from './Student';
+import { Months } from './enums/Months';
 
-class Teacher extends Employee {
+export class Teacher extends Employee {
   private _subject: Subject;
 
   constructor(
@@ -22,7 +22,7 @@ class Teacher extends Employee {
   }
 }
 
-const teacher: Teacher = new Teacher('Lenite', new Date(1980, Month.abril, 25), 2500, subject1);
+const teacher: Teacher = new Teacher('Lenite', new Date(1980, Months.abril, 25), 2500, subject1);
 
 console.log(teacher.admissionDate);
 console.log(teacher.subject.name);
