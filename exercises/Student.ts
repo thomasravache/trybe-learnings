@@ -1,11 +1,14 @@
 import { Person } from './Person';
 import { Enrollable } from 'interfaces/Enrollable';
 import { Months } from './enums/Months';
+import { EvaluationResult } from './EvaluationResult';
+import { Exam } from './Exam';
+import { Teacher } from './Teacher';
+import { Subject } from './Subject';
 
 export class Student extends Person implements Enrollable {
   private _enrollment: string;
-  private _examGrades: number[];
-  private _workGrades: number[];
+  private _evaluationsResults: EvaluationResult[];
 
   constructor(
     name: string,
@@ -13,8 +16,7 @@ export class Student extends Person implements Enrollable {
   ) {
     super(name, birthDate);
     this._enrollment = this.generateEnrollment();
-    this._examGrades = [];
-    this._workGrades = [];
+    this._evaluationsResults = [];
   }
   
   public generateEnrollment(): string {
@@ -25,30 +27,20 @@ export class Student extends Person implements Enrollable {
     return this._enrollment;
   }
 
-  public setExamGrades(examGrades: number[]): void {
-    if (this._examGrades.length > 4) throw new Error('Limite máximo para notas de prova');
-    this._examGrades = examGrades;
-  }
-
-  public setWorkGrades(workGrades: number[]): void {
-    if (this._workGrades.length > 2) throw new Error('Limite máximo para notas de trabalho');
-    this._workGrades = workGrades;
+  public setEvaluationResults(evaluationResults: EvaluationResult[]): void {
+    if (evaluationResults.length > 6) throw new Error('Limite máximo atingido');
+    this._evaluationsResults = evaluationResults;
   }
 
   public sumNotes(): number {
-    if (this._examGrades.length > 4) throw new Error('deve possuir no máximo 4 notas de prova');
-    const sumOfExamNotes = this._examGrades
-      .reduce((acc, curr) => acc + curr, 0);
+    const sumOfEvaluationResults = this._evaluationsResults
+      .reduce((acc, curr) => acc + curr.score, 0);
 
-    if (this._workGrades.length > 2) throw new Error('deve possuir no máximo 2 notas de trabalho');
-    const sumOfWorkNotes = this._workGrades
-      .reduce((acc, curr) => acc + curr, 0);
-
-    return sumOfExamNotes + sumOfWorkNotes;
+    return sumOfEvaluationResults;
   }
 
   public sumAverageNotes(): string {
-    const numberOfElements = this._examGrades.length + this._workGrades.length;
+    const numberOfElements = this._evaluationsResults.length;
 
     if (!numberOfElements) return 'Não registrado';
 
@@ -63,7 +55,11 @@ const student3 = new Student('Chapa quente', new Date(1995, Months.dezembro, 20)
 const student4 = new Student('Boris Johnson', new Date(1990, Months.agosto, 2));
 const student5 = new Student('Mano Brown', new Date(2000, Months.janeiro, 8));
 
-student1.setExamGrades([10, 10, 10, 8]);
-student1.setWorkGrades([8, 10]);
+const subject = new Subject('Historia');
+const teacher10 = new Teacher('Thomas', new Date(1990, Months.abril, 5), 6000, subject);
+const evaluation = new Exam(10, teacher10);
+const evaluationResult = new EvaluationResult(evaluation, 10);
+
+student1.setEvaluationResults([evaluationResult]);
 console.log(student1.sumNotes());
 console.log(student1.sumAverageNotes());
