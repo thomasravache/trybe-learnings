@@ -1,16 +1,12 @@
-export default function progressNotification(
-  message: string,
-  notificationType: string
-): void {
-  switch (notificationType) {
-    case 'Email':
-      console.log('Email: ', message);
-      break;
-    case 'Phone':
-      console.log('Phone: ', message);
-      break;
-    case 'Console':
-      console.log('Console: ', message)
-      break;
+const notificationTypes = ['Email', 'Phone', 'Console']
+
+export const progressNotification = (message: string, type: string): void => {
+  if (!notificationTypes.includes(type)) {
+    console.log('Invalid type');
+    return;
   }
+
+  console.log(`${type}: ${message}`);
 };
+
+progressNotification('oi', 'Email');
