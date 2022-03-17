@@ -1,7 +1,7 @@
 // ./tests/getLetterGrades.spec.ts
 
 import { expect } from 'chai';
-import { getLetterGrades } from '../src';
+import { getLetterGrades } from '../src/example01_SRC';
 
 const disciplinesDict = {
   mathematics: 'matemática',

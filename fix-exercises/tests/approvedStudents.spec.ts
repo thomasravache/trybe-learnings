@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { approvedStudents } from '../src';
+import { approvedStudents } from '../src/example01_SRC';
 
 const disciplinesDict = {
   mathematics: 'matemática',
