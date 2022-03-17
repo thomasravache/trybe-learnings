@@ -7,7 +7,7 @@ class Flute {
 }
 
 class Musician {
-  constructor(public name: string, public flute: Flute) {  }
+  constructor(public name: string, public flute: Flute = new Flute('minha flauta')) {  }
 
   public play() {
     this.flute.play();
@@ -15,5 +15,5 @@ class Musician {
   }
 }
 
-const musician = new Musician('Thomas', new Flute('minha flauta'));
+const musician = new Musician('Thomas');
 musician.play();
