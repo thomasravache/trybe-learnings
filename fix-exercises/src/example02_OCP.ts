@@ -39,8 +39,10 @@ const percentageGradesIntoLetters = (student: Student): Student => ({
   disciplines: student.disciplines.map(getLetterGrades) });
 
 /* "Determinar" */
-const approvedStudents = ({ disciplines }: Student): boolean =>
-  disciplines.every(({ grade }) => grade > 0.7);
+const approvedStudents = ({ disciplines, school }: Student): boolean =>
+  disciplines.every(({ grade }) => (
+    school === 'Standard' ? grade >= 0.7 : grade >= 0.8
+  ));
 
 /* "Atualizar" */
 const updateApprovalData = (student: Student): void => {
