@@ -33,10 +33,10 @@ class PhoneNotification implements Notificator {
 export class ReadingTracker {
   private readingGoal: number;
   private booksRead: number;
-  notificator: Notificator;
+  private notificator: Notificator;
   
-  constructor(readingGoal: number,  email: string) {
-    this.notificator = new EmailNotification(email);
+  constructor(readingGoal: number,  email: string, notificator: Notificator = new EmailNotification(email)) {
+    this.notificator = notificator;
     this.readingGoal = readingGoal;
     this.booksRead = 0;
   }
