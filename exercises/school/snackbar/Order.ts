@@ -2,9 +2,10 @@ import { OrderItem } from './OrderItem'
 import { Person } from '../Person';
 import { Months } from '../enums/Months';
 
-type Payment = 'cartão' | 'dinheiro' | 'vale';
+export type Payment = 'cartão' | 'dinheiro' | 'vale';
 
 export class Order {
+  private _id: number;
   private _client: Person;
   private _items: OrderItem[];
   private _paymentMethod: Payment;
@@ -25,6 +26,13 @@ export class Order {
     this._items = items;
     this._paymentMethod = paymentMethod;
     this._discount = discount;
+    this._id = this.generateId();
+  }
+
+  private generateId(): number {
+    const generatedStringRandom = (new Date().getTime() + this._client.name.length).toString();
+    const id = parseInt(generatedStringRandom.slice(9));
+    return id;
   }
 
   private sumPrices(): number {
@@ -32,6 +40,10 @@ export class Order {
       .reduce<number>((acc, curr) => acc + curr.price, 0);
 
     return sumOfPriceItems;
+  }
+
+  public get id(): number {
+    return this._id;
   }
 
   public getTotal(): number {
@@ -53,6 +65,10 @@ export class Order {
 
   public get paymentMethod(): Payment {
     return this._paymentMethod;
+  }
+
+  public get items(): OrderItem[] {
+    return this._items;
   }
 }
 

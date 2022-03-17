@@ -17,11 +17,20 @@ class Order {
         this._items = items;
         this._paymentMethod = paymentMethod;
         this._discount = discount;
+        this._id = this.generateId();
+    }
+    generateId() {
+        const generatedStringRandom = (new Date().getTime() + this._client.name.length).toString();
+        const id = parseInt(generatedStringRandom.slice(9));
+        return id;
     }
     sumPrices() {
         const sumOfPriceItems = this._items
             .reduce((acc, curr) => acc + curr.price, 0);
         return sumOfPriceItems;
+    }
+    get id() {
+        return this._id;
     }
     getTotal() {
         const total = this.sumPrices();
@@ -38,6 +47,9 @@ class Order {
     }
     get paymentMethod() {
         return this._paymentMethod;
+    }
+    get items() {
+        return this._items;
     }
 }
 exports.Order = Order;
