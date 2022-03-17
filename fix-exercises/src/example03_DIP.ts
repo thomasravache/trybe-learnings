@@ -7,17 +7,13 @@ class Flute {
 }
 
 class Musician {
-  private _flute: Flute;
-
-  constructor(public name: string) {
-    this._flute = new Flute('minha flauta');
-  }
+  constructor(public name: string, public flute: Flute) {  }
 
   public play() {
-    this._flute.play();
+    this.flute.play();
     console.log(`"${this.name}" é quem está comandando a emissão de melodias`);
   }
 }
 
-const musician = new Musician('Thomas');
+const musician = new Musician('Thomas', new Flute('minha flauta'));
 musician.play();
