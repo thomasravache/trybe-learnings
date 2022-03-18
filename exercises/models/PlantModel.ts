@@ -16,6 +16,8 @@ export class PlantModel implements CRUD {
     
     plants.push(createdPlant);
 
+    await this._connection.write(plants);
+
     return createdPlant;
   }
 

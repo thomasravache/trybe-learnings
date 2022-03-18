@@ -1,13 +1,16 @@
 import express from 'express';
-import plantRouter from './routes/plantRoutes';
+import { PlantRoutes } from './routes/plantRoutes';
 import bodyParser from 'body-parser';
 
 const app: express.Application = express();
 
 const PORT = 3000;
 
+const plantRoutes = new PlantRoutes(app);
+
 app.use(bodyParser.json());
-app.use(plantRouter);
+
+plantRoutes.use();
 
 app.listen(PORT, () => {
   console.log(`Escutando na porta ${PORT}`);

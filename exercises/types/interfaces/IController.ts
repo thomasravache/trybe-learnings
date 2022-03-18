@@ -1,8 +1,8 @@
-import { IPlantRequest, IPlant } from './IPlant';
+import { Response, Request, NextFunction } from 'express';
 
 export interface IController {
-  create(body: IPlantRequest): Promise<IPlant>;
-  findAll(): Promise<IPlant[]>;
-  update(params: string, body: IPlantRequest): Promise<IPlant>;
-  destroy(params: string): Promise<void>;
+  create(req: Request, res: Response, next?: NextFunction): Promise<Response>;
+  findAll(req: Request, res: Response, next?: NextFunction): Promise<Response>;
+  update(req: Request, res: Response, next?: NextFunction): Promise<Response>;
+  destroy(req: Request, res: Response, next?: NextFunction): Promise<Response>;
 }

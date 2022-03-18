@@ -1,32 +1,22 @@
-import { Router, Request, Response } from 'express';
+import { Application } from 'express';
 import plantController from '../controllers/PlantController';
-import StatusCodes from '../types/enums/StatusCodes';
-import { IPlantRequest } from '../types/interfaces';
+import { IRoutes } from '../types/interfaces';
 
-const plantRoutes = Router();
+export class PlantRoutes implements IRoutes {
+  public app: Application;
 
-plantRoutes.post('/plant', async (req: Request, res: Response) => {
-  const createdPlant = await plantController.create(req.body as IPlantRequest);
+  constructor(app: Application) {
+    this.app = app;
+    this.use = this.use.bind(this);
+  }
 
-  return res.status(StatusCodes.CREATED).json(createdPlant);
-});
-plantRoutes.get('/plants', async (_req: Request, res: Response) => {
-  const plants = await plantController.findAll();
+  use(): Application {
+    this.app
+      .get('/plants', plantController.findAll)
+      .post('/plant', plantController.create)
+      .put('/plant/:id', plantController.update)
+      .delete('/plant/:id', plantController.destroy);
 
-  return res.status(StatusCodes.OK).json(plants);
-});
-plantRoutes.put('/plant/:id', async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const updatedPlant = await plantController.update(id as string, req.body as IPlantRequest);
-
-  return res.status(StatusCodes.OK).json(updatedPlant);
-});
-plantRoutes.delete('/plant/:id', async (req: Request, res: Response) => {
-  const { id } = req.params;
-  await plantController.destroy(id as string);
-
-  return res.status(StatusCodes.OK).end();
-});
-
-
-export default plantRoutes;
+    return this.app;
+  }
+}
