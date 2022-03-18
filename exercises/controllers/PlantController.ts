@@ -1,8 +1,10 @@
 import { PlantService } from '../service/PlantService';
 import { IController, IPlantRequest } from '../types/interfaces';
 import plantService from '../service/PlantService';
-import { Request, Response } from 'express';
+import { Request, Response, Router } from 'express';
 import StatusCodes from '../types/enums/StatusCodes';
+
+const plantRouter = Router();
 
 class PlantController implements IController {
   private _plantService: PlantService;
@@ -50,4 +52,9 @@ class PlantController implements IController {
 
 const plantController = new PlantController(plantService);
 
-export default plantController;
+plantRouter.get('/plants', plantController.findAll);
+plantRouter.post('/plant', plantController.create);
+plantRouter.put('/plant/:id', plantController.update);
+plantRouter.delete('/plant/:id', plantController.destroy);
+
+export default plantRouter;
