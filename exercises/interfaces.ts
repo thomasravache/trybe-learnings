@@ -8,6 +8,8 @@ export interface IVehicle {
   drive(): void;
 }
 
-export interface IFuturisticVehicle extends IVehicle {
+export interface IAirplane {
   fly(): void
 }
+
+export interface IFuturisticVehicle extends IVehicle, IAirplane {  }
