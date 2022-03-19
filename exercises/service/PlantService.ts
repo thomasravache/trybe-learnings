@@ -33,7 +33,6 @@ export class PlantService implements CRUD {
 
   public async findAll(): Promise<IPlant[]> {
     const plants = await this._plantsModel.findAll();
-    // console.log(plants);
 
     return plants;
   }

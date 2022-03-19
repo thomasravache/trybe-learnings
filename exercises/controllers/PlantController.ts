@@ -50,4 +50,5 @@ class PlantController implements IController {
 
 const plantController = new PlantController(plantService);
 
+
 export default plantController;
