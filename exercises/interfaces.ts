@@ -6,5 +6,8 @@ export interface IFooCepAPI {
 // ./interfaces.ts
 export interface IVehicle {
   drive(): void;
-  fly(): void;
+}
+
+export interface IFuturisticVehicle extends IVehicle {
+  fly(): void
 }
