@@ -1,21 +1,22 @@
 import { Application } from 'express';
-import plantController from '../controllers/PlantController';
-import { IRoutes } from '../types/interfaces';
+import { IController, IRoutes } from '../types/interfaces';
 
 export class PlantRoutes implements IRoutes {
   public app: Application;
+  public controller: IController;
 
-  constructor(app: Application) {
+  constructor(app: Application, controller: IController) {
     this.app = app;
+    this.controller = controller;
     this.use = this.use.bind(this);
   }
 
   use(): Application {
     this.app
-      .get('/plants', plantController.findAll)
-      .post('/plant', plantController.create)
-      .put('/plant/:id', plantController.update)
-      .delete('/plant/:id', plantController.destroy);
+      .get('/plants', this.controller.findAll)
+      .post('/plant', this.controller.create)
+      .put('/plant/:id', this.controller.update)
+      .delete('/plant/:id', this.controller.destroy);
 
     return this.app;
   }

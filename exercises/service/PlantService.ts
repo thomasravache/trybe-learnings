@@ -7,7 +7,6 @@ export class PlantService implements CRUD {
 
   constructor(plantsModel: PlantModel) {
     this._plantsModel = plantsModel;
-    // this._plantsModel.findAll().then(console.log);
   }
 
   public async create(plant: IPlantRequest): Promise<IPlant> {
