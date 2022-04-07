@@ -1,2 +1,2 @@
 use('business')
-db.restaurants.countDocuments({ borough: { $in: ['Queens', 'Staten Iland', 'Bronx'] } });
+db.restaurants.countDocuments({ borough: { $in: ['Queens', 'Staten Island', 'Bronx'] } });
