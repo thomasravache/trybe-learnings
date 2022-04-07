@@ -1,0 +1,2 @@
+use('business')
+db.restaurants.countDocuments({ cuisine: { $ne: 'American' } });
