@@ -1,0 +1,2 @@
+use('business')
+db.restaurants.countDocuments({ rating: { $lt: 4 } });
