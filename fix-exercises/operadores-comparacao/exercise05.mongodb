@@ -1,0 +1,2 @@
+use('business')
+db.restaurants.countDocuments({ rating: { $nin: [5, 6, 7] } });
