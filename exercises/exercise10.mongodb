@@ -1,0 +1,2 @@
+use('class')
+db.books.find({}, { title: 1, authors: 1, status: 1 }).limit(10).skip(5);
