@@ -1,0 +1,2 @@
+use('class')
+db.superheroes.find({ $and: [{ race: { $ne: 'Human' } }, { 'aspects.height': { $not: { $gt: 180 } } }] });
