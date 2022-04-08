@@ -1,0 +1,2 @@
+use('business')
+db.restaurants.deleteMany({ cuisine: 'American' });
