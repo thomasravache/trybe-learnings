@@ -1,0 +1,2 @@
+use('class')
+db.superheroes.countDocuments({ 'aspects.eyeColor': { $eq: 'blue' } });
