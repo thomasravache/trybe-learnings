@@ -6,4 +6,4 @@ db.movies.find({
       $lte: 105
     }
   }
-});
+}, { title: 1, ratings: 1, _id: 0 });
