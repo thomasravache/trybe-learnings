@@ -3,7 +3,7 @@ show dbs;
 // criar banco e coleção inventory
 use('commerce');
 db.inventory.insertOne({
-  item: 'bike',
+  item: 'camera',
   qty: 25,
   dimensions: {
     w: 1.5,
@@ -13,3 +13,137 @@ db.inventory.insertOne({
   price: 500.25
 });
 
+// listar
+use('commerce');
+db.inventory.find();
+
+// mostrar coleções
+use('commerce');
+show collections;
+
+// inserir mais que um
+use('commerce');
+db.inventory.insertMany([
+  {
+    item: 'bike',
+    qty: 25,
+    dimensions: {
+     w: 1.5,
+     h: 1.0,
+     u: 'cm'
+    },
+    price: 10.25,
+    reviews: 'S'
+  },
+  {
+    item: 'camera',
+    qty: 10,
+    dimensions: {
+     w: 1.5,
+     h: 1.0,
+     u: 'cm'
+    },
+    price: 200.25,
+    reviews: 'S'
+  },
+  {
+    item: 'gift card',
+    qty: 2005,
+    dimensions: {
+     w: 10.5,
+     h: 10.0,
+     u: 'cm'
+    },
+    price: 700.25,
+    reviews: 'S'
+  }
+]);
+
+// dropar coleção
+use('commerce');
+db.inventory.drop();
+
+
+// filtrar com find
+use('commerce');
+// cada propriedade a mais é um AND
+db.inventory.find({ item: 'camera', reviews: 'S' });
+
+
+// Não vai funcionar o findOne porque ele está procurando
+// por algo exatamente igual a 'coffee'
+db.inventory.insertOne({ item: 'tv' });
+
+db.inventory.findOne({ item: 'coffee' });
+
+// exemplo de relacionamento 1 pra 1
+// mais confiável acoplar informações no mesmo documento
+
+db.users.insertOne({
+  name: 'Joe',
+  address: {
+    street: 'rua tal',
+    city: 'cidade tal',
+    state: 'estado tal',
+    zip: '1234'
+  }
+});
+
+// relacionamentos 1 pra n
+db.users.insertOne({
+  name: 'Joe',
+  addresses: [
+    {
+      street: 'rua tal',
+      city: 'cidade tal',
+      state: 'estado tal',
+      zip: '1234'
+    },
+    {
+      street: 'rua tal 2',
+      city: 'cidade tal 2',
+      state: 'estado tal 2',
+      zip: '1234'
+    }
+  ]
+});
+
+// filtro dentro de arrays
+
+db.users.find({
+  'addresses.state': 'estado tal 2'
+});
+
+// retorno apenas com algumas propriedades
+
+db.inventory.find(
+  {},
+  { qty: true, price: true, item: true }
+);
+
+// retorno apenas com algumas propriedades s/ Id
+/* OBS: só pode ser utilizada inclusao de campos ou exclusao de campos no projection, os dois não dá */
+db.inventory.find(
+  {}, // FILTER OR QUERY
+  { qty: true, price: true, item: true, _id: false } // PROJECTION
+); 
+
+// pegar só os dois primeiros itens
+db.inventory.find().limit(3);
+
+// pular itens
+db.inventory.find({}, { _id: false }).skip(1);
+
+// paginacao
+
+// consulta pagina 0 com dois itens
+
+db.inventory.find({}, { _id: false }).skip(2*0).limit(2)
+
+// consulta pagina 1
+
+db.inventory.find({}, { _id: false }).skip(2*1).limit(2)
+
+// consulta pagina 2
+
+db.inventory.find({}, { _id: false }).skip(2*2).limit(2)
