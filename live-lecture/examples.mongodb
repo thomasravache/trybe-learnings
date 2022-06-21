@@ -1,0 +1,15 @@
+show dbs;
+
+// criar banco e coleção inventory
+use('commerce');
+db.inventory.insertOne({
+  item: 'bike',
+  qty: 25,
+  dimensions: {
+    w: 1.5,
+    h: 1.0,
+    u: 'cm'
+  },
+  price: 500.25
+});
+
