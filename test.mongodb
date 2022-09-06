@@ -12,5 +12,9 @@ db.inventory.insertMany([
 { item: 'Coffee', qty: 10, dimensions: { w: 15, h: 120, u: 'cm' }, price: 200.25 }
 ]);
 
-use ('commerce');
 db.inventory.find({ item: 'Coffee' });
+
+db.inventory.insertOne({ item: 'Coffee', qty: 10, dimensions: { w: 15, h: 120, u: 'cm' }, price: 400.25 });
+
+use ('commerce');
+db.inventory.find({ item: 'Coffee', price: 400.25 });
