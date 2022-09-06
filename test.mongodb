@@ -6,9 +6,11 @@ show collections;
 
 db.inventory.drop();
 
-use ('commerce');
 db.inventory.insertMany([
 { item: 'Bike', qty: 25, dimensions: { w: 150, h: 100, u: 'cm' }, price: 500.25 },
 { item: 'Camera', qty: 2, dimensions: { w: 20, h: 250, u: 'cm' }, price: 100.25 },
 { item: 'Coffee', qty: 10, dimensions: { w: 15, h: 120, u: 'cm' }, price: 200.25 }
 ]);
+
+use ('commerce');
+db.inventory.find({ item: 'Coffee' });
