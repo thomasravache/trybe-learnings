@@ -1,2 +1,4 @@
-use commerce;
-db.inventory.insertOne({ item: 'Bike', qty: 25, dimensions: { w: 1.5, h: 1 }, price: 500.25 });
+use ('commerce');
+db.inventory.insertOne({ item: 'Bike', qty: 25, dimensions: { w: 150, h: 100, u: 'cm' }, price: 500.25 });
+
+db.inventory.find();
